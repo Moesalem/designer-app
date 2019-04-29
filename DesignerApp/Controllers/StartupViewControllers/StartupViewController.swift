@@ -75,7 +75,7 @@ class StartupViewController: UIViewController {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
-                debugPrint("Erroi: ", error)
+                debugPrint("Error Linkin user: ", error)
                 return
             }
             

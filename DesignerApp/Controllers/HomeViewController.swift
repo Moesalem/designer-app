@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UICollectionViewController {
+class HomeViewController: MainListController {
     
     // MARK: - Properties
     
@@ -21,26 +21,17 @@ class HomeViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Auth.auth().currentUser == nil {
-            Auth.auth().signInAnonymously { (res, error) in
-                if let error = error {
-                    debugPrint("Error Signing in as anonymous", error.localizedDescription)
-                }
-                print("success")
-            }
-        }else {
-            print("not nil")
-        }
-        
+        anonymousUserSignIn()
         
         collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         self.navigationItem.leftBarButtonItem = leftBarBtn
-        leftBarBtn.action = #selector(leftBarBtnClicked)
+        leftBarBtn.action = #selector(signInOutBtn)
         leftBarBtn.target = self
-        
     }
+    
+    //MARK:- viewDidAppear
     
     override func viewDidAppear(_ animated: Bool) {
         if let user = Auth.auth().currentUser, !user.isAnonymous {
@@ -49,39 +40,8 @@ class HomeViewController: UICollectionViewController {
             leftBarBtn.title = "Login"
         }
     }
-    
-    @objc func leftBarBtnClicked() {
-        
-        guard let user = Auth.auth().currentUser else { return }
-        
-        if user.isAnonymous {
-            present(StartupViewController(), animated: true, completion: nil)
-        } else {
-            
-            do {
-                try Auth.auth().signOut()
-                print("Logout Successfully")
-                Auth.auth().signInAnonymously { (res, error) in
-                    if let error = error {
-                        debugPrint("Error Signing in as anonymous", error.localizedDescription)
-                    }
-                    self.present(StartupViewController(), animated: true, completion: nil)
-                }
-            } catch {
-                debugPrint(error.localizedDescription)
-            }
-        }
-    }
-    
-    
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
+
 
 // MARK: - DataSource & Delegates
 
@@ -104,5 +64,38 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 44)
+    }
+}
+
+// MARK: - Firebase Authentication Proccess
+extension HomeViewController {
+    
+    fileprivate func anonymousUserSignIn() {
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (res, error) in
+                if let error = error {
+                    debugPrint("Error Signing in as anonymous", error.localizedDescription)
+                }
+                print("success")
+            }
+        }
+    }
+    
+    @objc func signInOutBtn() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if user.isAnonymous {
+            present(StartupViewController(), animated: true, completion: nil)
+        } else {
+            
+            do {
+                try Auth.auth().signOut()
+                print("Logout Successfully")
+                anonymousUserSignIn()
+            } catch {
+                debugPrint("Error Signing out user: ", error.localizedDescription)
+            }
+        }
     }
 }
