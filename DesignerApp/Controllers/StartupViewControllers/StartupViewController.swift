@@ -24,7 +24,7 @@ class StartupViewController: UIViewController {
     let passwTxtField = CustomTextField()
     
     // Sign In Btn
-    let signInBtn = UIButton(type: .system)
+    let loginBtn = UIButton(type: .system)
     
     // Sign Up Btn
     let signUpBtn = UIButton(type: .system)
@@ -78,32 +78,8 @@ class StartupViewController: UIViewController {
         }
     }
     
-    @objc func signInUser() {
-        
-        guard let email = emailTxtField.text, !email.isEmpty,
-            let password = passwTxtField.text, !password.isEmpty else { return }
-        
-        activityIndcator.startAnimating()
-
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
-            guard let strongSelf = self else { return }
-            
-            if let error = error {
-                debugPrint("Erroi: ", error)
-                strongSelf.activityIndcator.stopAnimating()
-                return
-            }
-            
-            if let user = user {
-                // The user's ID, unique to the Firebase project.
-                // Do NOT use this value to authenticate with your backend server,
-                // if you have one. Use getTokenWithCompletion:completion: instead.
-                let uid = user.user.uid
-                let email = user.user.email
-                print("Successfully Logged in", uid, email!)
-            }
-            strongSelf.activityIndcator.stopAnimating()
-        }
+    @objc func presentLoginVC() {
+        self.present(LoginViewController(), animated: true, completion: nil)
     }
     
     //*********************
@@ -131,13 +107,13 @@ class StartupViewController: UIViewController {
         passwTxtField.dropShadow()
         
         // SignIn Btn UI
-        signInBtn.setTitle("Sign In", for: .normal)
-        signInBtn.backgroundColor = #colorLiteral(red: 0.8218338816, green: 0.2417618034, blue: 0.2666666667, alpha: 1)
-        signInBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14.adjusted, weight: UIFont.Weight(rawValue: 6.adjusted))
-        signInBtn.layer.cornerRadius = 8
-        signInBtn.setTitleColor(.white, for: .normal)
-        signInBtn.dropShadow()
-        signInBtn.addTarget(self, action: #selector(signInUser), for: .touchUpInside)
+        loginBtn.setTitle("Sign In", for: .normal)
+        loginBtn.backgroundColor = #colorLiteral(red: 0.8218338816, green: 0.2417618034, blue: 0.2666666667, alpha: 1)
+        loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14.adjusted, weight: UIFont.Weight(rawValue: 6.adjusted))
+        loginBtn.layer.cornerRadius = 8
+        loginBtn.setTitleColor(.white, for: .normal)
+        loginBtn.dropShadow()
+        loginBtn.addTarget(self, action: #selector(presentLoginVC), for: .touchUpInside)
         
         // SignUp Btn UI
         signUpBtn.setTitle("Sign Up", for: .normal)
@@ -197,14 +173,14 @@ class StartupViewController: UIViewController {
         view.addSubview(activityIndcator)
         
         // VARIDIC ARGS
-        cardView.addSubviews(usernameTxtField, emailTxtField, passwTxtField, signInBtn,signUpBtn, separtorStackView, faceBookBtn, googleBtn)
+        cardView.addSubviews(usernameTxtField, emailTxtField, passwTxtField, loginBtn,signUpBtn, separtorStackView, faceBookBtn, googleBtn)
 
         // UIViews Height
         cardView.constrainHeight(constant: 450.adjusted)
         usernameTxtField.constrainHeight(constant: 40.adjusted)
         emailTxtField.constrainHeight(constant: 40.adjusted)
         passwTxtField.constrainHeight(constant: 40.adjusted)
-        signInBtn.constrainHeight(constant: 40.adjusted)
+        loginBtn.constrainHeight(constant: 40.adjusted)
         signUpBtn.constrainHeight(constant: 40.adjusted)
         googleBtn.constrainHeight(constant: 40.adjusted)
         faceBookBtn.constrainHeight(constant: 40.adjusted)
@@ -216,16 +192,16 @@ class StartupViewController: UIViewController {
         cardView.centerYInSuperview()
         
         // usernameTxt constraints
-        usernameTxtField.anchor(top: cardView.topAnchor, leading: cardView.leadingAnchor, bottom: nil, trailing: cardView.trailingAnchor, padding: .init(top: 20.adjusted, left: 20.adjusted, bottom: 0, right: 20.adjusted))
+        usernameTxtField.anchor(top: cardView.topAnchor, leading: cardView.leadingAnchor, bottom: nil, trailing: cardView.trailingAnchor, padding: .init(top: 20.adjusted, left: 30.adjusted, bottom: 0, right: 30.adjusted))
         
         // emailTxt constraints
-        emailTxtField.anchor(top: usernameTxtField.bottomAnchor, leading: cardView.leadingAnchor, bottom: nil, trailing: cardView.trailingAnchor, padding: .init(top: 15.adjusted, left: 20.adjusted, bottom: 0, right: 20.adjusted))
+        emailTxtField.anchor(top: usernameTxtField.bottomAnchor, leading: cardView.leadingAnchor, bottom: nil, trailing: cardView.trailingAnchor, padding: .init(top: 15.adjusted, left: 30.adjusted, bottom: 0, right: 30.adjusted))
         
         // passwTxt constraints
-        passwTxtField.anchor(top: emailTxtField.bottomAnchor, leading: cardView.leadingAnchor, bottom: nil, trailing: cardView.trailingAnchor, padding: .init(top: 15.adjusted, left: 20.adjusted, bottom: 0, right: 20.adjusted))
+        passwTxtField.anchor(top: emailTxtField.bottomAnchor, leading: cardView.leadingAnchor, bottom: nil, trailing: cardView.trailingAnchor, padding: .init(top: 15.adjusted, left: 30.adjusted, bottom: 0, right: 30.adjusted))
         
         // signIn constraints
-        signInBtn.anchor(top: nil, leading: cardView.leadingAnchor, bottom: signUpBtn.topAnchor, trailing: cardView.trailingAnchor, padding: .init(top: 0, left: 30.adjusted, bottom: 5.adjusted, right: 30.adjusted))
+        loginBtn.anchor(top: nil, leading: cardView.leadingAnchor, bottom: signUpBtn.topAnchor, trailing: cardView.trailingAnchor, padding: .init(top: 0, left: 30.adjusted, bottom: 5.adjusted, right: 30.adjusted))
         
         // signUp constraints
         signUpBtn.anchor(top: nil, leading: cardView.leadingAnchor, bottom: separtorStackView.topAnchor, trailing: cardView.trailingAnchor, padding: .init(top: 0, left: 30.adjusted, bottom: 0

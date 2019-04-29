@@ -19,6 +19,9 @@
 		DD4758372274864200E82B32 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4758362274864100E82B32 /* CustomTextField.swift */; };
 		DD47583922748AE300E82B32 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47583822748AE300E82B32 /* CustomButton.swift */; };
 		DD5964DD2276476100CCFF39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD5964DC2276476100CCFF39 /* GoogleService-Info.plist */; };
+		DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A12276F049004A80BE /* LoginViewController.swift */; };
+		DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A32276F47C004A80BE /* HomeViewController.swift */; };
+		DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A52276F63B004A80BE /* MainTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		DD4758362274864100E82B32 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DD47583822748AE300E82B32 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DD5964DC2276476100CCFF39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD69C8A12276F049004A80BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DD69C8A32276F47C004A80BE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DD69C8A52276F63B004A80BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				DD5964E1227666C000CCFF39 /* StartupViewControllers */,
+				DD69C8A32276F47C004A80BE /* HomeViewController.swift */,
+				DD69C8A52276F63B004A80BE /* MainTabController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				DD47581B22741C9D00E82B32 /* StartupViewController.swift */,
+				DD69C8A12276F049004A80BE /* LoginViewController.swift */,
 			);
 			path = StartupViewControllers;
 			sourceTree = "<group>";
@@ -265,10 +274,13 @@
 			files = (
 				DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */,
 				DD47583422743EB600E82B32 /* Extensions.swift in Sources */,
+				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
 				DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */,
+				DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */,
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,
 				DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */,
+				DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */,
 				DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
