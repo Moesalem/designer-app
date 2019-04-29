@@ -19,18 +19,30 @@ class HomeViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (res, error) in
+                if let error = error {
+                    debugPrint("Error Signing in as anonymous", error.localizedDescription)
+                }
+                print("success")
+            }
+        }else {
+            print("not nil")
+        }
+        
+        
         collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         self.navigationItem.leftBarButtonItem = leftBarBtn
         leftBarBtn.action = #selector(leftBarBtnClicked)
         leftBarBtn.target = self
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let _ = Auth.auth().currentUser {
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
             leftBarBtn.title = "Logout"
         } else {
             leftBarBtn.title = "Login"
@@ -38,17 +50,28 @@ class HomeViewController: UICollectionViewController {
     }
     
     @objc func leftBarBtnClicked() {
-        if let _ = Auth.auth().currentUser {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if user.isAnonymous {
+            present(StartupViewController(), animated: true, completion: nil)
+        } else {
+            
             do {
                 try Auth.auth().signOut()
-                self.present(LoginViewController(), animated: true, completion: nil)
+                Auth.auth().signInAnonymously { (res, error) in
+                    if let error = error {
+                        debugPrint("Error Signing in as anonymous", error.localizedDescription)
+                    }
+                    self.present(StartupViewController(), animated: true, completion: nil)
+                }
             } catch {
                 debugPrint(error.localizedDescription)
             }
-        } else {
-            self.present(LoginViewController(), animated: true, completion: nil)
         }
     }
+    
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -63,12 +86,12 @@ class HomeViewController: UICollectionViewController {
 extension HomeViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .red
+        cell.backgroundColor = .purple
         return cell
     }
 }
