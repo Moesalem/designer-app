@@ -76,6 +76,8 @@ class StartupViewController: UIViewController {
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
                 debugPrint("Error Linkin user: ", error)
+                self.handleFireAuthError(error: error)
+                self.activityIndcator.stopAnimating()
                 return
             }
             
