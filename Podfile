@@ -6,5 +6,7 @@ target 'DesignerApp' do
   use_frameworks!
 
   # Pods for DesignerApp
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
 
 end
