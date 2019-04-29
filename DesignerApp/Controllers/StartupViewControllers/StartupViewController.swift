@@ -72,7 +72,7 @@ class StartupViewController: UIViewController {
 
         guard let authUser = Auth.auth().currentUser else { return }
         
-        let credential = EmailAuthProvider.credential(withEmail: email, link: password)
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
                 debugPrint("Erroi: ", error)

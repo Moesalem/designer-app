@@ -15,6 +15,7 @@ class HomeViewController: UICollectionViewController {
     
     fileprivate let cellId = "cellId"
     fileprivate let leftBarBtn = UIBarButtonItem()
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -59,6 +60,7 @@ class HomeViewController: UICollectionViewController {
             
             do {
                 try Auth.auth().signOut()
+                print("Logout Successfully")
                 Auth.auth().signInAnonymously { (res, error) in
                     if let error = error {
                         debugPrint("Error Signing in as anonymous", error.localizedDescription)
