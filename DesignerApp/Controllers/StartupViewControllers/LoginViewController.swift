@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
     // Sign In Btn
     let loginBtn = UIButton(type: .system)
     
+    // Forgot Password Btn
+    let forgetPasswordBtn = UIButton(type: .system)
+    
     // ActivityIndcator
     let activityIndcator = UIActivityIndicatorView(style: .whiteLarge)
     
@@ -34,7 +37,6 @@ class LoginViewController: UIViewController {
         setupViews()
     }
     
-    
     @objc func signInUser() {
         
         guard let email = emailTxtField.text, !email.isEmpty,
@@ -46,30 +48,31 @@ class LoginViewController: UIViewController {
             guard let strongSelf = self else { return }
             
             if let error = error {
-                debugPrint("Erroi: ", error)
+                debugPrint("Error Logging in user: ", error)
+                strongSelf.handleFireAuthError(error: error)
                 strongSelf.activityIndcator.stopAnimating()
                 return
             }
             
             if let user = user {
-                // The user's ID, unique to the Firebase project.
-                // Do NOT use this value to authenticate with your backend server,
-                // if you have one. Use getTokenWithCompletion:completion: instead.
-                let uid = user.user.uid
-                let email = user.user.email
+                let uid = user.user.uid // user id
+                let email = user.user.email // user email
                 print("Successfully Logged in", uid, email!)
             }
             self?.present(MainTabBarController(), animated: true, completion: nil)
             strongSelf.activityIndcator.stopAnimating()
-        }     }
+        }
+    }
     
     @objc func dismissLoginVC () {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    //*********************
-    //MARK: - UI Views
-    //*********************
+ 
+}
+
+// MARK: - UI Views
+extension LoginViewController {
+  
     fileprivate func customUIViews() {
         
         // Dismiss Btn
@@ -88,6 +91,14 @@ class LoginViewController: UIViewController {
         passwTxtField.borderStyle = .roundedRect
         passwTxtField.dropShadow()
         
+        // ForgetPassword UI
+        forgetPasswordBtn.setTitle("Forget Password?", for: .normal)
+        forgetPasswordBtn.backgroundColor = .darkGray
+        forgetPasswordBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14.adjusted, weight: UIFont.Weight(rawValue: 6.adjusted))
+        forgetPasswordBtn.layer.cornerRadius = 8
+        forgetPasswordBtn.setTitleColor(.white, for: .normal)
+        forgetPasswordBtn.dropShadow()
+
         // SignIn Btn UI
         loginBtn.setTitle("Sign In", for: .normal)
         loginBtn.backgroundColor = #colorLiteral(red: 0.8218338816, green: 0.2417618034, blue: 0.2666666667, alpha: 1)
@@ -98,16 +109,21 @@ class LoginViewController: UIViewController {
         loginBtn.addTarget(self, action: #selector(signInUser), for: .touchUpInside)
         
     }
-    //*********************
-    //MARK: - UI Layout
-    //*********************
+}
+
+//MARK: - UI Layout
+extension LoginViewController {
+    
     func setupViews() {
         customUIViews()
         
-        let stackView = VerticalStackView(arrangedSubviews: [emailTxtField, passwTxtField, loginBtn], spacing: 12)
+        let stackView = VerticalStackView(arrangedSubviews: [emailTxtField, passwTxtField, forgetPasswordBtn, loginBtn], spacing: 12)
         stackView.distribution = .fillEqually
-        view.addSubview(dismissBtn)
-        view.addSubview(stackView)
+        
+        // UIView Extended
+        view.addSubviews(dismissBtn, stackView)
+        
+        // Layout
         dismissBtn.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
         dismissBtn.constrainHeight(constant: 50)
         
