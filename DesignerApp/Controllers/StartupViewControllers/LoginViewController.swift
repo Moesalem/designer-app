@@ -61,8 +61,7 @@ class LoginViewController: UIViewController {
             }
             self?.present(MainTabBarController(), animated: true, completion: nil)
             strongSelf.activityIndcator.stopAnimating()
-        }
-    }
+        }     }
     
     @objc func dismissLoginVC () {
         self.dismiss(animated: true, completion: nil)
