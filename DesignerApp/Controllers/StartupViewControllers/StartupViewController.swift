@@ -66,7 +66,10 @@ class StartupViewController: UIViewController {
     @objc func signUpNewUser() {
         guard let email = emailTxtField.text, !email.isEmpty,
             let username = usernameTxtField.text, !username.isEmpty,
-            let password = passwTxtField.text, !password.isEmpty else { return }
+            let password = passwTxtField.text, !password.isEmpty else {
+                simpleAlert(title: "Error", msg: "Please fill up all inputs.")
+                return
+        }
         
         activityIndcator.startAnimating()
 
@@ -90,10 +93,11 @@ class StartupViewController: UIViewController {
     @objc func presentLoginVC() {
         self.present(LoginViewController(), animated: true, completion: nil)
     }
-    
-    //*********************
-     //MARK: - UI Views
-    //*********************
+}
+
+//MARK: - UI Views
+extension StartupViewController {
+
     fileprivate func customUIViews() {
         
         // Main Parent View UI
@@ -170,11 +174,11 @@ class StartupViewController: UIViewController {
         googleBtn.layer.borderColor = UIColor.darkGray.cgColor
         
     }
+}
 
-    //*********************
-     //MARK: - UI Layout
-    //*********************
-
+//MARK: - UI Layout
+extension StartupViewController {
+    
     fileprivate func setupViews() {
         customUIViews()
         // Adding subViews
@@ -183,7 +187,7 @@ class StartupViewController: UIViewController {
         
         // VARIDIC ARGS
         cardView.addSubviews(usernameTxtField, emailTxtField, passwTxtField, loginBtn,signUpBtn, separtorStackView, faceBookBtn, googleBtn)
-
+        
         // UIViews Height
         cardView.constrainHeight(constant: 450.adjusted)
         usernameTxtField.constrainHeight(constant: 40.adjusted)
