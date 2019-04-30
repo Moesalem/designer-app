@@ -2,4 +2,5 @@ DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/UserInterfaceState.xcuserstat
 
 *.DS_Store
 Pods/*
-# Xcode
+Podfile
+Podfile.lock
