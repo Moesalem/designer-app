@@ -40,7 +40,10 @@ class LoginViewController: UIViewController {
     @objc func signInUser() {
         
         guard let email = emailTxtField.text, !email.isEmpty,
-            let password = passwTxtField.text, !password.isEmpty else { return }
+            let password = passwTxtField.text, !password.isEmpty else {
+                simpleAlert(title: "Error", msg: "Please fill all inputs.")
+                return
+        }
         
         activityIndcator.startAnimating()
         
