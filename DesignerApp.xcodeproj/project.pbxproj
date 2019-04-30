@@ -14,7 +14,6 @@
 		DD47582122741CA000E82B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD47582022741CA000E82B32 /* Assets.xcassets */; };
 		DD47582422741CA000E82B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD47582222741CA000E82B32 /* LaunchScreen.storyboard */; };
 		DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47582F22743EB600E82B32 /* UIView+Layout.swift */; };
-		DD47583422743EB600E82B32 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47583022743EB600E82B32 /* Extensions.swift */; };
 		DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47583122743EB600E82B32 /* VerticalStackView.swift */; };
 		DD4758372274864200E82B32 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4758362274864100E82B32 /* CustomTextField.swift */; };
 		DD47583922748AE300E82B32 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47583822748AE300E82B32 /* CustomButton.swift */; };
@@ -23,6 +22,7 @@
 		DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A32276F47C004A80BE /* HomeViewController.swift */; };
 		DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A52276F63B004A80BE /* MainTabController.swift */; };
 		DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A722778C5F004A80BE /* MainListController.swift */; };
+		DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A9227865CA004A80BE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		DD47582322741CA000E82B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD47582522741CA000E82B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD47582F22743EB600E82B32 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
-		DD47583022743EB600E82B32 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../Modules/Modules/Helpers/Extensions.swift; sourceTree = "<group>"; };
 		DD47583122743EB600E82B32 /* VerticalStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		DD4758362274864100E82B32 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DD47583822748AE300E82B32 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		DD69C8A32276F47C004A80BE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DD69C8A52276F63B004A80BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		DD69C8A722778C5F004A80BE /* MainListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListController.swift; sourceTree = "<group>"; };
+		DD69C8A9227865CA004A80BE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +106,11 @@
 		DD47582B22743C8F00E82B32 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DD47583022743EB600E82B32 /* Extensions.swift */,
 				DD47582F22743EB600E82B32 /* UIView+Layout.swift */,
 				DD47583122743EB600E82B32 /* VerticalStackView.swift */,
 				DD4758362274864100E82B32 /* CustomTextField.swift */,
 				DD47583822748AE300E82B32 /* CustomButton.swift */,
+				DD69C8A9227865CA004A80BE /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -276,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */,
-				DD47583422743EB600E82B32 /* Extensions.swift in Sources */,
 				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
 				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
@@ -285,6 +284,7 @@
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,
 				DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */,
 				DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */,
+				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
 				DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
