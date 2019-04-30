@@ -22,6 +22,7 @@
 		DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A12276F049004A80BE /* LoginViewController.swift */; };
 		DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A32276F47C004A80BE /* HomeViewController.swift */; };
 		DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A52276F63B004A80BE /* MainTabController.swift */; };
+		DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A722778C5F004A80BE /* MainListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DD69C8A12276F049004A80BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD69C8A32276F47C004A80BE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DD69C8A52276F63B004A80BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		DD69C8A722778C5F004A80BE /* MainListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				DD5964E1227666C000CCFF39 /* StartupViewControllers */,
 				DD69C8A32276F47C004A80BE /* HomeViewController.swift */,
 				DD69C8A52276F63B004A80BE /* MainTabController.swift */,
+				DD69C8A722778C5F004A80BE /* MainListController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				DD47583422743EB600E82B32 /* Extensions.swift in Sources */,
 				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
+				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
 				DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */,
 				DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */,
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,

@@ -9,66 +9,51 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UICollectionViewController {
+class HomeViewController: MainListController {
     
     // MARK: - Properties
     
     fileprivate let cellId = "cellId"
     fileprivate let leftBarBtn = UIBarButtonItem()
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        anonymousUserSignIn()
+        
         collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         self.navigationItem.leftBarButtonItem = leftBarBtn
-        leftBarBtn.action = #selector(leftBarBtnClicked)
+        leftBarBtn.action = #selector(signInOutBtn)
         leftBarBtn.target = self
-
     }
     
+    //MARK:- viewDidAppear
+    
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let _ = Auth.auth().currentUser {
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
             leftBarBtn.title = "Logout"
         } else {
             leftBarBtn.title = "Login"
         }
     }
-    
-    @objc func leftBarBtnClicked() {
-        if let _ = Auth.auth().currentUser {
-            do {
-                try Auth.auth().signOut()
-                self.present(LoginViewController(), animated: true, completion: nil)
-            } catch {
-                debugPrint(error.localizedDescription)
-            }
-        } else {
-            self.present(LoginViewController(), animated: true, completion: nil)
-        }
-    }
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
+
 
 // MARK: - DataSource & Delegates
 
 extension HomeViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .red
+        cell.backgroundColor = .purple
         return cell
     }
 }
@@ -79,5 +64,38 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 44)
+    }
+}
+
+// MARK: - Firebase Authentication Proccess
+extension HomeViewController {
+    
+    fileprivate func anonymousUserSignIn() {
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (res, error) in
+                if let error = error {
+                    debugPrint("Error Signing in as anonymous", error.localizedDescription)
+                }
+                print("success")
+            }
+        }
+    }
+    
+    @objc func signInOutBtn() {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if user.isAnonymous {
+            present(StartupViewController(), animated: true, completion: nil)
+        } else {
+            
+            do {
+                try Auth.auth().signOut()
+                print("Logout Successfully")
+                anonymousUserSignIn()
+            } catch {
+                debugPrint("Error Signing out user: ", error.localizedDescription)
+            }
+        }
     }
 }

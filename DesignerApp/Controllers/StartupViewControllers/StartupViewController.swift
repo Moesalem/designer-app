@@ -62,19 +62,28 @@ class StartupViewController: UIViewController {
     //*********************
     //MARK: - Signing up new users method
     //*********************
+    
     @objc func signUpNewUser() {
         guard let email = emailTxtField.text, !email.isEmpty,
             let username = usernameTxtField.text, !username.isEmpty,
             let password = passwTxtField.text, !password.isEmpty else { return }
+        
         activityIndcator.startAnimating()
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+
+        guard let authUser = Auth.auth().currentUser else { return }
+        
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
-                debugPrint("Erroi: ", error)
+                debugPrint("Error Linkin user: ", error)
+                self.handleFireAuthError(error: error)
+                self.activityIndcator.stopAnimating()
                 return
             }
             
             print("Succefuly registered new user.")
             self.activityIndcator.stopAnimating()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
