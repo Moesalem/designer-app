@@ -26,7 +26,7 @@ class CustomTextField: UITextField {
     private func setUpField() {
         tintColor             = .white
         textColor             = .darkGray
-        font                  = UIFont(name: "hey", size: 18.adjusted)
+        font                  = UIFont(name: "hey", size: 12.adjusted)
         backgroundColor       = UIColor(white: 1.0, alpha: 0.5)
         autocorrectionType    = .no
 //        layer.cornerRadius    = 10
