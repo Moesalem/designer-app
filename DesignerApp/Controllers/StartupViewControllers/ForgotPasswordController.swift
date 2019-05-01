@@ -33,7 +33,7 @@ class ForgotPasswordController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        customUIViews()
+        setupViews()
     }
     
     // MARK: - Firebase ForgotPW method
@@ -89,7 +89,7 @@ extension ForgotPasswordController {
 extension ForgotPasswordController {
     
     fileprivate func setupViews() {
-        
+        customUIViews()
         let btnStackView = UIStackView(arrangedSubviews: [cancelBtn, resetPWButton])
         btnStackView.distribution = .fillEqually
         btnStackView.alignment = .fill
