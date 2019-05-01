@@ -23,6 +23,8 @@
 		DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A52276F63B004A80BE /* MainTabController.swift */; };
 		DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A722778C5F004A80BE /* MainListController.swift */; };
 		DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A9227865CA004A80BE /* Extensions.swift */; };
+		DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */; };
+		DD69C8B82278B0CB004A80BE /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		DD69C8A52276F63B004A80BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		DD69C8A722778C5F004A80BE /* MainListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListController.swift; sourceTree = "<group>"; };
 		DD69C8A9227865CA004A80BE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utilies.swift"; sourceTree = "<group>"; };
+		DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				DD4758362274864100E82B32 /* CustomTextField.swift */,
 				DD47583822748AE300E82B32 /* CustomButton.swift */,
 				DD69C8A9227865CA004A80BE /* Extensions.swift */,
+				DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			children = (
 				DD47581B22741C9D00E82B32 /* StartupViewController.swift */,
 				DD69C8A12276F049004A80BE /* LoginViewController.swift */,
+				DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */,
 			);
 			path = StartupViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD69C8B82278B0CB004A80BE /* ForgotPasswordController.swift in Sources */,
 				DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */,
 				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
@@ -285,6 +292,7 @@
 				DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */,
 				DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
+				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
 				DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9HB64RUKQ;
 				INFOPLIST_FILE = DesignerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,6 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9HB64RUKQ;
 				INFOPLIST_FILE = DesignerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -59,9 +59,13 @@ class StartupViewController: UIViewController {
         setupViews()
     }
     
-    //*********************
-    //MARK: - Signing up new users method
-    //*********************
+    @objc func presentLoginVC() {
+        self.present(LoginViewController(), animated: true, completion: nil)
+    }
+}
+
+ //MARK: - Signing up new users with different methods
+extension StartupViewController {
     
     @objc func signUpNewUser() {
         guard let email = emailTxtField.text, !email.isEmpty,
@@ -72,14 +76,14 @@ class StartupViewController: UIViewController {
         }
         
         activityIndcator.startAnimating()
-
+        
         guard let authUser = Auth.auth().currentUser else { return }
         
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
                 debugPrint("Error Linkin user: ", error)
-                self.handleFireAuthError(error: error)
+                Auth.auth().handleFireAuthError(error: error, vc: self)
                 self.activityIndcator.stopAnimating()
                 return
             }
@@ -89,9 +93,13 @@ class StartupViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+
+    @objc func signUpWithFB() {
+        // TODO: TODO: Signing in user with Facebook
+    }
     
-    @objc func presentLoginVC() {
-        self.present(LoginViewController(), animated: true, completion: nil)
+    @objc func signUpWithGoogle() {
+        // TODO: TODO: Signing in user with google
     }
 }
 
@@ -162,6 +170,8 @@ extension StartupViewController {
         faceBookBtn.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
         faceBookBtn.backgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.5882352941, alpha: 1)
         faceBookBtn.dropShadow()
+        faceBookBtn.addTarget(self, action: #selector(signUpWithFB), for: .touchUpInside)
+
         
         // Google Btn UI
         googleBtn.setTitle("Login With Google", for: .normal)
@@ -172,7 +182,8 @@ extension StartupViewController {
         googleBtn.setTitleColor(.darkGray, for: .normal)
         googleBtn.layer.borderWidth = 2
         googleBtn.layer.borderColor = UIColor.darkGray.cgColor
-        
+        googleBtn.addTarget(self, action: #selector(signUpWithGoogle), for: .touchUpInside)
+
     }
 }
 
