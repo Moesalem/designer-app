@@ -23,7 +23,7 @@ class HomeViewController: MainListController {
         
         anonymousUserSignIn()
         
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         self.navigationItem.leftBarButtonItem = leftBarBtn
