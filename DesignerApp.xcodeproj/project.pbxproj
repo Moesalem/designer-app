@@ -25,6 +25,14 @@
 		DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A9227865CA004A80BE /* Extensions.swift */; };
 		DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */; };
 		DD69C8B82278B0CB004A80BE /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */; };
+		DD69C8C02279A062004A80BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8BF2279A062004A80BE /* AppDelegate.swift */; };
+		DD69C8C22279A062004A80BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8C12279A062004A80BE /* ViewController.swift */; };
+		DD69C8C52279A062004A80BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C32279A062004A80BE /* Main.storyboard */; };
+		DD69C8C72279A064004A80BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C62279A064004A80BE /* Assets.xcassets */; };
+		DD69C8CA2279A064004A80BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C82279A064004A80BE /* LaunchScreen.storyboard */; };
+		DD69C8D12279A149004A80BE /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D02279A149004A80BE /* CategoryViewController.swift */; };
+		DD69C8D32279A180004A80BE /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D22279A180004A80BE /* CategoryCell.swift */; };
+		DD69C8D52279E45B004A80BE /* DesignsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D42279E45B004A80BE /* DesignsListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,16 @@
 		DD69C8A9227865CA004A80BE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utilies.swift"; sourceTree = "<group>"; };
 		DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		DD69C8BD2279A062004A80BE /* DesignerAppAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignerAppAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD69C8BF2279A062004A80BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD69C8C12279A062004A80BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD69C8C42279A062004A80BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD69C8C62279A064004A80BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD69C8C92279A064004A80BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD69C8CB2279A064004A80BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD69C8D02279A149004A80BE /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		DD69C8D22279A180004A80BE /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		DD69C8D42279E45B004A80BE /* DesignsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignsListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D113D76A6B657A92D2A21E3B /* Pods_DesignerApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD69C8BA2279A062004A80BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				DD47581822741C9D00E82B32 /* DesignerApp */,
+				DD69C8BE2279A062004A80BE /* DesignerAppAdmin */,
 				DD47581722741C9D00E82B32 /* Products */,
 				E9351279E73C9D614E97E03D /* Pods */,
 				392AF395B1163A06307E7419 /* Frameworks */,
@@ -86,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				DD47581622741C9D00E82B32 /* DesignerApp.app */,
+				DD69C8BD2279A062004A80BE /* DesignerAppAdmin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +150,7 @@
 		DD5964DE2276669A00CCFF39 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD69C8CF2279A0A3004A80BE /* Explore */,
 				DD5964E1227666C000CCFF39 /* StartupViewControllers */,
 				DD69C8A32276F47C004A80BE /* HomeViewController.swift */,
 				DD69C8A52276F63B004A80BE /* MainTabController.swift */,
@@ -134,6 +162,7 @@
 		DD5964DF227666A200CCFF39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD69C8D22279A180004A80BE /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,6 +182,28 @@
 				DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */,
 			);
 			path = StartupViewControllers;
+			sourceTree = "<group>";
+		};
+		DD69C8BE2279A062004A80BE /* DesignerAppAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				DD69C8BF2279A062004A80BE /* AppDelegate.swift */,
+				DD69C8C12279A062004A80BE /* ViewController.swift */,
+				DD69C8C32279A062004A80BE /* Main.storyboard */,
+				DD69C8C62279A064004A80BE /* Assets.xcassets */,
+				DD69C8C82279A064004A80BE /* LaunchScreen.storyboard */,
+				DD69C8CB2279A064004A80BE /* Info.plist */,
+			);
+			path = DesignerAppAdmin;
+			sourceTree = "<group>";
+		};
+		DD69C8CF2279A0A3004A80BE /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				DD69C8D02279A149004A80BE /* CategoryViewController.swift */,
+				DD69C8D42279E45B004A80BE /* DesignsListController.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 		E9351279E73C9D614E97E03D /* Pods */ = {
@@ -186,6 +237,23 @@
 			productReference = DD47581622741C9D00E82B32 /* DesignerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DD69C8BC2279A062004A80BE /* DesignerAppAdmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD69C8CE2279A064004A80BE /* Build configuration list for PBXNativeTarget "DesignerAppAdmin" */;
+			buildPhases = (
+				DD69C8B92279A062004A80BE /* Sources */,
+				DD69C8BA2279A062004A80BE /* Frameworks */,
+				DD69C8BB2279A062004A80BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DesignerAppAdmin;
+			productName = DesignerAppAdmin;
+			productReference = DD69C8BD2279A062004A80BE /* DesignerAppAdmin.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +265,9 @@
 				ORGANIZATIONNAME = "Mohammed salem bajuaifer";
 				TargetAttributes = {
 					DD47581522741C9D00E82B32 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD69C8BC2279A062004A80BE = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -215,6 +286,7 @@
 			projectRoot = "";
 			targets = (
 				DD47581522741C9D00E82B32 /* DesignerApp */,
+				DD69C8BC2279A062004A80BE /* DesignerAppAdmin */,
 			);
 		};
 /* End PBXProject section */
@@ -228,6 +300,16 @@
 				DD5964DD2276476100CCFF39 /* GoogleService-Info.plist in Resources */,
 				DD47582122741CA000E82B32 /* Assets.xcassets in Resources */,
 				DD47581F22741C9D00E82B32 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD69C8BB2279A062004A80BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD69C8CA2279A064004A80BE /* LaunchScreen.storyboard in Resources */,
+				DD69C8C72279A064004A80BE /* Assets.xcassets in Resources */,
+				DD69C8C52279A062004A80BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,16 +366,28 @@
 				DD69C8B82278B0CB004A80BE /* ForgotPasswordController.swift in Sources */,
 				DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */,
 				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
+				DD69C8D52279E45B004A80BE /* DesignsListController.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
 				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
 				DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */,
 				DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */,
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,
+				DD69C8D12279A149004A80BE /* CategoryViewController.swift in Sources */,
 				DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */,
 				DD69C8A42276F47C004A80BE /* HomeViewController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
 				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
 				DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */,
+				DD69C8D32279A180004A80BE /* CategoryCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD69C8B92279A062004A80BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD69C8C22279A062004A80BE /* ViewController.swift in Sources */,
+				DD69C8C02279A062004A80BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +406,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD47582322741CA000E82B32 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DD69C8C32279A062004A80BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD69C8C42279A062004A80BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD69C8C82279A064004A80BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD69C8C92279A064004A80BE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -475,6 +585,42 @@
 			};
 			name = Release;
 		};
+		DD69C8CC2279A064004A80BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R9HB64RUKQ;
+				INFOPLIST_FILE = DesignerAppAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.moeproject.DesignerAppAdmin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD69C8CD2279A064004A80BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R9HB64RUKQ;
+				INFOPLIST_FILE = DesignerAppAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.moeproject.DesignerAppAdmin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -492,6 +638,15 @@
 			buildConfigurations = (
 				DD47582922741CA000E82B32 /* Debug */,
 				DD47582A22741CA000E82B32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD69C8CE2279A064004A80BE /* Build configuration list for PBXNativeTarget "DesignerAppAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD69C8CC2279A064004A80BE /* Debug */,
+				DD69C8CD2279A064004A80BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
