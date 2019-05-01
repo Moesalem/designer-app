@@ -36,9 +36,13 @@ class LoginViewController: UIViewController {
         
         setupViews()
     }
+}
+
+// MARK: - Firebase Auth methods
+extension LoginViewController {
     
+    // Sign in user Method
     @objc func signInUser() {
-        
         guard let email = emailTxtField.text, !email.isEmpty,
             let password = passwTxtField.text, !password.isEmpty else {
                 simpleAlert(title: "Error", msg: "Please fill all inputs.")
@@ -52,7 +56,7 @@ class LoginViewController: UIViewController {
             
             if let error = error {
                 debugPrint("Error Logging in user: ", error)
-                strongSelf.handleFireAuthError(error: error)
+                Auth.auth().handleFireAuthError(error: error, vc: self)
                 strongSelf.activityIndcator.stopAnimating()
                 return
             }
@@ -67,10 +71,16 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // ForgotPW Method
+    @objc func forgotPW() {
+        let forgotPasswordVC = ForgotPasswordController()
+        forgotPasswordVC.modalPresentationStyle = .overCurrentContext
+        self.present(forgotPasswordVC, animated: true, completion: nil)
+    }
+    
     @objc func dismissLoginVC () {
         self.dismiss(animated: true, completion: nil)
     }
- 
 }
 
 // MARK: - UI Views
@@ -101,6 +111,7 @@ extension LoginViewController {
         forgetPasswordBtn.layer.cornerRadius = 8
         forgetPasswordBtn.setTitleColor(.white, for: .normal)
         forgetPasswordBtn.dropShadow()
+        forgetPasswordBtn.addTarget(self, action: #selector(forgotPW), for: .touchUpInside)
 
         // SignIn Btn UI
         loginBtn.setTitle("Sign In", for: .normal)
@@ -110,7 +121,6 @@ extension LoginViewController {
         loginBtn.setTitleColor(.white, for: .normal)
         loginBtn.dropShadow()
         loginBtn.addTarget(self, action: #selector(signInUser), for: .touchUpInside)
-        
     }
 }
 
@@ -123,11 +133,15 @@ extension LoginViewController {
         let stackView = VerticalStackView(arrangedSubviews: [emailTxtField, passwTxtField, forgetPasswordBtn, loginBtn], spacing: 12)
         stackView.distribution = .fillEqually
         
-        // UIView Extended
+        // UIView extension
         view.addSubviews(dismissBtn, stackView)
         
         // Layout
-        dismissBtn.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
+        if #available(iOS 11.0, *) {
+            dismissBtn.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
+        } else {
+            dismissBtn.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor)
+        }
         dismissBtn.constrainHeight(constant: 50)
         
         stackView.anchor(top: dismissBtn.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 50, left: 20, bottom: 0, right: 20))
