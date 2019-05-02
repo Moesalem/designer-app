@@ -23,16 +23,32 @@ class CategoryViewController: MainListController {
         
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
-        fetchDocument()
+        fetchCollection()
     }
     
     func fetchDocument() {
         let doc = Firestore.firestore().collection("categories").document("3c9BBqfkGX6IbW7SxGJV")
-        
         doc.getDocument { (snapshot, error) in
             guard let data = snapshot?.data() else { return }
             let newCategory = Category.init(data: data)
             self.categories.append(newCategory)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchCollection() {
+        let db = Firestore.firestore()
+        let collection = db.collection("categories")
+        collection.getDocuments { (snap, error) in
+            if let error = error {
+                print(error)
+            }
+            guard let docs = snap?.documents else { return }
+            for doc in docs {
+                let data = doc.data()
+                let newCategory = Category.init(data: data)
+                self.categories.append(newCategory)
+            }
             self.collectionView.reloadData()
         }
     }
