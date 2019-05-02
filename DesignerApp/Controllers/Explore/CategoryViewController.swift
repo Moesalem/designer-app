@@ -7,40 +7,50 @@
 //
 
 import UIKit
+import Kingfisher
+import FirebaseFirestore
 
-class CategoryViewController: UICollectionViewController {
+class CategoryViewController: MainListController {
     
     // MARK: - Properties
     
     fileprivate let cellId = "cellId"
+    fileprivate var categories = [Category]()
     
     // MARK: - viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
+        fetchDocument()
     }
     
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func fetchDocument() {
+        let doc = Firestore.firestore().collection("categories").document("3c9BBqfkGX6IbW7SxGJV")
+        
+        doc.getDocument { (snapshot, error) in
+            guard let data = snapshot?.data() else { return }
+            let newCategory = Category.init(data: data)
+            self.categories.append(newCategory)
+            self.collectionView.reloadData()
+        }
     }
 }
 
 // MARK: - DataSource & Delegates
-
 extension CategoryViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return categories.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
+        let category = categories[indexPath.item]
+        cell.categoryImage.kf.indicatorType = .activity
+        cell.categoryImage.kf.setImage(with: URL(string: category.imgUrl), options: [.transition(.fade(0.2))])
+        cell.categoryLabel.text  = category.name
         return cell
     }
     
@@ -52,7 +62,6 @@ extension CategoryViewController {
 }
 
 // MARK: - Delegate Flow Layout
-
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
