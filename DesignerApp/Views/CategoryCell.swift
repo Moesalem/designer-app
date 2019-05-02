@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell {
     
-    let categoryImage = UIImageView(image: #imageLiteral(resourceName: "Rectangle"))
+    var categoryImage = UIImageView(image: #imageLiteral(resourceName: "Rectangle"))
     let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 24))
     let shadowView = UIView()
     
