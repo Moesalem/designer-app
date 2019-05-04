@@ -17,15 +17,26 @@ class CategoryViewController: MainListController {
     fileprivate let cellId = "cellId"
     fileprivate var categories = [Category]()
     
+    // To track of listenter
+    fileprivate var listener: ListenerRegistration!
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchCollection()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        listener.remove() // stops realtime updates when the view disappear
+    }
+    
+    // Fetching single document by its ID
     func fetchDocument() {
         let doc = Firestore.firestore().collection("categories").document("3c9BBqfkGX6IbW7SxGJV")
         doc.getDocument { (snapshot, error) in
@@ -36,14 +47,17 @@ class CategoryViewController: MainListController {
         }
     }
     
+    // Fetching all documents inside a collection in real time
     func fetchCollection() {
         let db = Firestore.firestore()
         let collection = db.collection("categories")
-        collection.getDocuments { (snap, error) in
+        
+       listener = collection.addSnapshotListener { (snapshot, error) in
             if let error = error {
                 print(error)
             }
-            guard let docs = snap?.documents else { return }
+            guard let docs = snapshot?.documents else { return }
+            self.categories.removeAll()
             for doc in docs {
                 let data = doc.data()
                 let newCategory = Category.init(data: data)
