@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [
             createNavController(viewController: CategoryViewController(), name: "Explore", image: "images-icon", selectedImage: "colored-images-icon"),
-            createNavController(viewController: HomeViewController(), name: "Search", image: "search", selectedImage: "colored-search"),
+            createNavController(viewController: CategoryViewController(), name: "Explore", image: "search", selectedImage: "colored-search"),
             createNavController(viewController: UIViewController(), name: "Profile", image: "user-profile", selectedImage: "colored-user-profile")
         ]
         

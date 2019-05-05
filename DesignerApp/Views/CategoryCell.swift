@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CategoryCell: UICollectionViewCell {
+    
+    var category: Category! {
+        didSet{
+            categoryImage.kf.indicatorType = .activity
+            categoryImage.kf.setImage(with: URL(string: category.imgUrl), options: [.transition(.fade(0.2))])
+            categoryLabel.text  = category.name
+        }
+    }
     
     var categoryImage = UIImageView(image: #imageLiteral(resourceName: "Rectangle"))
     let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 24))
