@@ -38,19 +38,19 @@ class CategoryViewController: MainListController {
     
     //MARK:- viewDidAppear
     
-    override func viewWillAppear(_ animated: Bool) {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        setCategoriesListener()
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             leftBarBtn.title = "Logout"
         } else {
             leftBarBtn.title = "Login"
         }
-        
-        fetchCollection()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         listener.remove() // stops realtime updates when the view disappear
+        categories.removeAll()
+        collectionView.reloadData()
     }
 }
 
@@ -140,34 +140,44 @@ extension CategoryViewController {
 // MARK: - Firestore
 extension CategoryViewController {
     
-    // Fetching single document by its ID
-    func fetchDocument() {
-        let doc = Firestore.firestore().collection("categories").document("3c9BBqfkGX6IbW7SxGJV")
-        doc.getDocument { (snapshot, error) in
-            guard let data = snapshot?.data() else { return }
-            let newCategory = Category.init(data: data)
-            self.categories.append(newCategory)
-            self.collectionView.reloadData()
+    //
+    func setCategoriesListener() {
+       
+        let collection = Firestore.firestore().collection("categories")
+        listener = collection.addSnapshotListener { (snapshot, error) in
+            
+            if let error = error {
+                print("Error: Listener: ", error.localizedDescription)
+            }
+            
+            snapshot?.documentChanges.forEach({ (change) in
+                
+                let data = change.document.data()
+                let category = Category(data: data)
+                
+                switch change.type {
+                case .added:
+                   self.onDocumentAdded(change: change, category: category)
+                case .modified:
+                    self.onDocumentModified()
+                case .removed:
+                    self.onDocumentRemoved(change: change)
+                }
+            })
         }
     }
     
-    // Fetching all documents inside a collection in real time
-    func fetchCollection() {
-        let db = Firestore.firestore()
-        let collection = db.collection("categories")
+    func onDocumentAdded(change: DocumentChange, category: Category) {
+        let newIndex = Int(change.newIndex)
+        categories.insert(category, at: newIndex)
+        collectionView.insertItems(at:[IndexPath(item: newIndex, section: 0)])
+    }
+    
+    func onDocumentModified() {
         
-        listener = collection.addSnapshotListener { (snapshot, error) in
-            if let error = error {
-                print(error)
-            }
-            guard let docs = snapshot?.documents else { return }
-            self.categories.removeAll()
-            for doc in docs {
-                let data = doc.data()
-                let newCategory = Category.init(data: data)
-                self.categories.append(newCategory)
-            }
-            self.collectionView.reloadData()
-        }
+    }
+    
+    func onDocumentRemoved(change: DocumentChange) {
+        
     }
 }
