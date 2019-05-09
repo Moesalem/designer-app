@@ -145,10 +145,8 @@ extension CategoryViewController {
 extension CategoryViewController {
     
     func setCategoriesListener() {
-       
-        let collection = Firestore.firestore().collection("categories")
-        
-        listener = collection.addSnapshotListener { (snapshot, error) in
+
+        listener = Firestore.firestore().categories.addSnapshotListener { (snapshot, error) in
             
             if let error = error {
                 print("Error: Listener: ", error.localizedDescription)
