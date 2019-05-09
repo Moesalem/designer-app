@@ -37,18 +37,14 @@ class CategoryViewController: MainListController {
     }
     
     //MARK:- viewDidAppear
-    
     override func viewDidAppear(_ animated: Bool) {
         setCategoriesListener()
-        if let user = Auth.auth().currentUser, !user.isAnonymous {
-            leftBarBtn.title = "Logout"
-        } else {
-            leftBarBtn.title = "Login"
-        }
+        
+        userState()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        listener.remove() // stops realtime updates when the view disappear
+        listener.remove() // stops realtime updates
         categories.removeAll()
         collectionView.reloadData()
     }
@@ -135,15 +131,23 @@ extension CategoryViewController {
             }
         }
     }
+    
+    fileprivate func userState() {
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
+            leftBarBtn.title = "Logout"
+        } else {
+            leftBarBtn.title = "Login"
+        }
+    }
 }
 
 // MARK: - Firestore
 extension CategoryViewController {
     
-    //
     func setCategoriesListener() {
        
         let collection = Firestore.firestore().collection("categories")
+        
         listener = collection.addSnapshotListener { (snapshot, error) in
             
             if let error = error {
@@ -159,7 +163,7 @@ extension CategoryViewController {
                 case .added:
                    self.onDocumentAdded(change: change, category: category)
                 case .modified:
-                    self.onDocumentModified()
+                    self.onDocumentModified(change: change, category: category)
                 case .removed:
                     self.onDocumentRemoved(change: change)
                 }
@@ -173,11 +177,28 @@ extension CategoryViewController {
         collectionView.insertItems(at:[IndexPath(item: newIndex, section: 0)])
     }
     
-    func onDocumentModified() {
-        
+    func onDocumentModified(change: DocumentChange, category: Category) {
+        if change.newIndex == change.oldIndex {
+            // Item changed but remained in the same position
+            let newIndex = Int(change.newIndex)
+            categories[newIndex] = category
+            collectionView.reloadItems(at: [IndexPath(item: newIndex, section: 0)])
+        } else  {
+            // Item changed and changed position
+            let newIndex = Int(change.newIndex)
+            let oldIndex = Int(change.oldIndex)
+            
+            categories.remove(at: oldIndex)
+            categories.insert(category, at: newIndex)
+            
+            // Move item from oldIndex to newIndex
+            collectionView.moveItem(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
     }
     
     func onDocumentRemoved(change: DocumentChange) {
-        
+        let oldIndex = Int(change.oldIndex)
+        categories.remove(at: oldIndex)
+        collectionView.deleteItems(at: [IndexPath(item: oldIndex, section: 0)])
     }
 }
