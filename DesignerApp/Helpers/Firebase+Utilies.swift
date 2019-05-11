@@ -9,7 +9,7 @@
 import Firebase
 
 extension Firestore {
-    var categories: Query {
+    var categoriesByTimestamp: Query {
         return Firestore.firestore().collection("categories").order(by: "timestamp", descending: true)
     }
 }
