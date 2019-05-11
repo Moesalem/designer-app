@@ -39,7 +39,6 @@ class CategoryViewController: MainListController {
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         setCategoriesListener()
-        
         userState()
     }
     
@@ -146,7 +145,7 @@ extension CategoryViewController {
     
     func setCategoriesListener() {
 
-        listener = Firestore.firestore().categories.addSnapshotListener { (snapshot, error) in
+        listener = Firestore.firestore().categoriesByTimestamp.addSnapshotListener { (snapshot, error) in
             
             if let error = error {
                 print("Error: Listener: ", error.localizedDescription)
