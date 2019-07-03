@@ -18,6 +18,8 @@ class DesignsListController: MainListController {
     
     fileprivate var products = [Product]()
     
+    var category: Category?
+    
     fileprivate var listener: ListenerRegistration!
     
     // MARK: - viewDidLoad
@@ -25,6 +27,7 @@ class DesignsListController: MainListController {
         super.viewDidLoad()
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
         collectionView.register(DesignCell.self, forCellWithReuseIdentifier: cellId)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,14 +64,14 @@ extension DesignsListController: UICollectionViewDelegateFlowLayout {
         let leftRightPadding = view.frame.width  * 0.02.adjusted
         let interSpacing = view.frame.width * 0.02.adjusted
         let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
-        print(cellWidth)
+        // print(cellWidth)
         return .init(width: cellWidth, height: cellWidth + 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let leftRightPadding = view.frame.width  * 0.02
-        print(leftRightPadding)
+        // print(leftRightPadding)
         return .init(top: 20.adjusted, left: leftRightPadding.adjusted, bottom: 20.adjusted, right: leftRightPadding.adjusted)
     }
     
@@ -86,9 +89,12 @@ extension DesignsListController: UICollectionViewDelegateFlowLayout {
 extension DesignsListController {
     
     
-    
+    // TODO: Match the product model in Firebase to Product.swift
     func fetchDesigns() {
-        let products = Firestore.firestore().collection("Products").order(by: "name", descending: false)
+        
+        guard let category = category else { return }
+        
+        let products = Firestore.firestore().products.whereField("category", isEqualTo: category.id)
         
         listener = products.addSnapshotListener { (snapshot, error) in
             if let error = error {
@@ -105,6 +111,8 @@ extension DesignsListController {
                     self.onDocumentModified(change: change, product: product)
                 case .removed:
                     self.onDocumentRemoved(change: change)
+                @unknown default:
+                    fatalError()
                 }
             })
         }
@@ -139,5 +147,6 @@ extension DesignsListController {
         let oldIndex = Int(change.oldIndex)
         products.remove(at: oldIndex)
         collectionView.deleteItems(at: [IndexPath(item: oldIndex, section: 0)])
+        
     }
 }

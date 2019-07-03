@@ -12,6 +12,10 @@ extension Firestore {
     var categoriesByTimestamp: Query {
         return Firestore.firestore().collection("categories").order(by: "timestamp", descending: true)
     }
+    
+    var products: Query {
+        return Firestore.firestore().collection("Products")//order(by: "name", descending: false)
+    }
 }
 
 extension Auth {

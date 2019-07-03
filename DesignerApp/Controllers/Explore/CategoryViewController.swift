@@ -18,6 +18,8 @@ class CategoryViewController: MainListController {
     fileprivate let cellId = "cellId"
     fileprivate var categories = [Category]()
     
+    fileprivate var selectedCategory: Category!
+    
     // To track the listener
     fileprivate var listener: ListenerRegistration!
     
@@ -67,6 +69,10 @@ extension CategoryViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let designsListController = DesignsListController()
         
+        selectedCategory = categories[indexPath.item]
+        
+        designsListController.category = selectedCategory
+    
         self.navigationController?.pushViewController(designsListController, animated: true)
     }
 }
@@ -155,7 +161,7 @@ extension CategoryViewController {
                 
                 let data = change.document.data()
                 let category = Category(data: data)
-                
+                print(category.id)
                 switch change.type {
                 case .added:
                    self.onDocumentAdded(change: change, category: category)

@@ -49,9 +49,7 @@ class StartupViewController: UIViewController {
     let activityIndcator = UIActivityIndicatorView(style: .gray)
     
     
-    //*********************
     //MARK: - viewDidLoad
-    // ********************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +62,7 @@ class StartupViewController: UIViewController {
     }
 }
 
- //MARK: - Signing up new users with different methods
+//MARK: - Signing up new users with different methods
 extension StartupViewController {
     
     @objc func signUpNewUser() {
