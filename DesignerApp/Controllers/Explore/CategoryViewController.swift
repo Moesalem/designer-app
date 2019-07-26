@@ -26,6 +26,8 @@ class CategoryViewController: MainListController {
     // Login/Logout Button
     fileprivate let leftBarBtn = UIBarButtonItem()
     
+    var didSelectHandler: ((Category) -> ())?
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +42,13 @@ class CategoryViewController: MainListController {
     
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
-        setCategoriesListener()
+//        setCategoriesListener()
         userState()
     }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
-        listener.remove() // stops realtime updates
-        categories.removeAll()
+//        listener.remove() // stops realtime updates
+//        categories.removeAll()
         collectionView.reloadData()
     }
 }
@@ -67,13 +69,8 @@ extension CategoryViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let designsListController = DesignsListController()
-        
         selectedCategory = categories[indexPath.item]
-        
-        designsListController.category = selectedCategory
-    
-        self.navigationController?.pushViewController(designsListController, animated: true)
+        didSelectHandler?(selectedCategory)
     }
 }
 

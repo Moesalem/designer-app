@@ -36,6 +36,8 @@ class DesignsListController: MainListController {
     
     override func viewDidDisappear(_ animated: Bool) {
         listener.remove()
+        products.removeAll()
+        collectionView.reloadData()
     }
 }
 

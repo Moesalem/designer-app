@@ -11,6 +11,7 @@ import UIKit
 class MainListController: UICollectionViewController {
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
