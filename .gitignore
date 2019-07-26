@@ -1,4 +1,6 @@
-DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/UserInterfaceState.xcuserstate
+../DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/UserInterfaceState.xcuserstate
+../DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+../DesignerApp.xcodeproj/project.pbxproj
 *.DS_Store
 Pods/*
 Podfile

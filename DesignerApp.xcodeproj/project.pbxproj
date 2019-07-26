@@ -39,6 +39,7 @@
 		DDE60BAA22EB6349004D41D8 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */; };
 		DDE60BAC22EB704B004D41D8 /* CategoryGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */; };
 		DDE60BAF22EB711E004D41D8 /* CustomApiDesigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */; };
+		DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BB722EB8110004D41D8 /* HorizontalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupCell.swift; sourceTree = "<group>"; };
 		DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiDesigns.swift; sourceTree = "<group>"; };
+		DDE60BB722EB8110004D41D8 /* HorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalController.swift; sourceTree = "<group>"; };
 		E717336B1B20D9F5329EFCD4 /* Pods_DesignerAppAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesignerAppAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA01E32F6748BDEE955B1914 /* Pods-DesignerAppAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignerAppAdmin.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesignerAppAdmin/Pods-DesignerAppAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 				DD5964E1227666C000CCFF39 /* StartupViewControllers */,
 				DD69C8A52276F63B004A80BE /* MainTabController.swift */,
 				DD69C8A722778C5F004A80BE /* MainListController.swift */,
+				DDE60BB722EB8110004D41D8 /* HorizontalController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
 				DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */,
 				DDE60BAF22EB711E004D41D8 /* CustomApiDesigns.swift in Sources */,
+				DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */,
 				DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */,
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,
 				DD69C8D12279A149004A80BE /* CategoryViewController.swift in Sources */,
