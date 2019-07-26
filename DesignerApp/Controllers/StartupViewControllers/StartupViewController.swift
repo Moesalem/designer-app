@@ -78,7 +78,7 @@ extension StartupViewController {
         guard let authUser = Auth.auth().currentUser else { return }
         
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        authUser.linkAndRetrieveData(with: credential) { (result, error) in
+        authUser.link(with: credential) { (result, error) in
             if let error = error {
                 debugPrint("Error Linkin user: ", error)
                 Auth.auth().handleFireAuthError(error: error, vc: self)
