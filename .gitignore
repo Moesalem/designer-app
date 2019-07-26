@@ -1,16 +1,7 @@
 DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/UserInterfaceState.xcuserstate
-<<<<<<< HEAD
-Pods/
-DesignerApp/Controllers/StartupViewControllers/.DS_Store
-
-DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/UserInterfaceState.xcuserstate
-
-DesignerApp.xcworkspace/xcuserdata/moe.xcuserdatad/UserInterfaceState.xcuserstate~gitignore
-
-=======
 
 *.DS_Store
 Pods/*
 Podfile
 Podfile.lock
->>>>>>> c660b988d3be3b81396213c9d2f34cbea80da161
+
