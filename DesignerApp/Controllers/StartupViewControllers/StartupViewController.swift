@@ -49,9 +49,7 @@ class StartupViewController: UIViewController {
     let activityIndcator = UIActivityIndicatorView(style: .gray)
     
     
-    //*********************
     //MARK: - viewDidLoad
-    // ********************
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,24 +57,31 @@ class StartupViewController: UIViewController {
         setupViews()
     }
     
-    //*********************
-    //MARK: - Signing up new users method
-    //*********************
+    @objc func presentLoginVC() {
+        self.present(LoginViewController(), animated: true, completion: nil)
+    }
+}
+
+//MARK: - Signing up new users with different methods
+extension StartupViewController {
     
     @objc func signUpNewUser() {
         guard let email = emailTxtField.text, !email.isEmpty,
             let username = usernameTxtField.text, !username.isEmpty,
-            let password = passwTxtField.text, !password.isEmpty else { return }
+            let password = passwTxtField.text, !password.isEmpty else {
+                simpleAlert(title: "Error", msg: "Please fill up all inputs.")
+                return
+        }
         
         activityIndcator.startAnimating()
-
+        
         guard let authUser = Auth.auth().currentUser else { return }
         
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
                 debugPrint("Error Linkin user: ", error)
-                self.handleFireAuthError(error: error)
+                Auth.auth().handleFireAuthError(error: error, vc: self)
                 self.activityIndcator.stopAnimating()
                 return
             }
@@ -86,14 +91,19 @@ class StartupViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    @objc func presentLoginVC() {
-        self.present(LoginViewController(), animated: true, completion: nil)
+
+    @objc func signUpWithFB() {
+        // TODO: TODO: Signing in user with Facebook
     }
     
-    //*********************
-     //MARK: - UI Views
-    //*********************
+    @objc func signUpWithGoogle() {
+        // TODO: TODO: Signing in user with google
+    }
+}
+
+//MARK: - UI Views
+extension StartupViewController {
+
     fileprivate func customUIViews() {
         
         // Main Parent View UI
@@ -158,6 +168,8 @@ class StartupViewController: UIViewController {
         faceBookBtn.titleEdgeInsets = .init(top: 0, left: 10, bottom: 0, right: 0)
         faceBookBtn.backgroundColor = #colorLiteral(red: 0.2784313725, green: 0.3529411765, blue: 0.5882352941, alpha: 1)
         faceBookBtn.dropShadow()
+        faceBookBtn.addTarget(self, action: #selector(signUpWithFB), for: .touchUpInside)
+
         
         // Google Btn UI
         googleBtn.setTitle("Login With Google", for: .normal)
@@ -168,13 +180,14 @@ class StartupViewController: UIViewController {
         googleBtn.setTitleColor(.darkGray, for: .normal)
         googleBtn.layer.borderWidth = 2
         googleBtn.layer.borderColor = UIColor.darkGray.cgColor
-        
+        googleBtn.addTarget(self, action: #selector(signUpWithGoogle), for: .touchUpInside)
+
     }
+}
 
-    //*********************
-     //MARK: - UI Layout
-    //*********************
-
+//MARK: - UI Layout
+extension StartupViewController {
+    
     fileprivate func setupViews() {
         customUIViews()
         // Adding subViews
@@ -183,7 +196,7 @@ class StartupViewController: UIViewController {
         
         // VARIDIC ARGS
         cardView.addSubviews(usernameTxtField, emailTxtField, passwTxtField, loginBtn,signUpBtn, separtorStackView, faceBookBtn, googleBtn)
-
+        
         // UIViews Height
         cardView.constrainHeight(constant: 450.adjusted)
         usernameTxtField.constrainHeight(constant: 40.adjusted)
