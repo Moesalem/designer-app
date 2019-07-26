@@ -11,7 +11,7 @@ import Kingfisher
 import FirebaseFirestore
 import Firebase
 
-class CategoryViewController: MainListController {
+class CategoryViewController: HorizontalController {
     
     // MARK: - Properties
     
@@ -83,7 +83,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         let interSpacing = view.frame.width * 0.02
         let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
         print(cellWidth)
-        return .init(width: cellWidth, height: cellWidth - 20)
+        return .init(width: cellWidth + 50, height: cellWidth - 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -166,6 +166,8 @@ extension CategoryViewController {
                     self.onDocumentModified(change: change, category: category)
                 case .removed:
                     self.onDocumentRemoved(change: change)
+                @unknown default:
+                    print("Unknown Error")
                 }
             })
         }
