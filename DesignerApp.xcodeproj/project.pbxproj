@@ -35,6 +35,7 @@
 		DD69C8D52279E45B004A80BE /* DesignsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D42279E45B004A80BE /* DesignsListController.swift */; };
 		DD69C8D72279EAC1004A80BE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D62279EAC1004A80BE /* Category.swift */; };
 		DD69C8D92279EB12004A80BE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D82279EB12004A80BE /* Product.swift */; };
+		DDE60BAA22EB6349004D41D8 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		DD69C8D42279E45B004A80BE /* DesignsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignsListController.swift; sourceTree = "<group>"; };
 		DD69C8D62279EAC1004A80BE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD69C8D82279EB12004A80BE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				DD69C8D02279A149004A80BE /* CategoryViewController.swift */,
+				DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */,
 				DD69C8D42279E45B004A80BE /* DesignsListController.swift */,
 			);
 			path = Explore;
@@ -395,6 +398,7 @@
 				DD1D71B32286344000E477AF /* DesignCell.swift in Sources */,
 				DD69C8D92279EB12004A80BE /* Product.swift in Sources */,
 				DD69C8D72279EAC1004A80BE /* Category.swift in Sources */,
+				DDE60BAA22EB6349004D41D8 /* ExploreViewController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
 				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
 				DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */,
