@@ -20,6 +20,9 @@
 		DD4758372274864200E82B32 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4758362274864100E82B32 /* CustomTextField.swift */; };
 		DD47583922748AE300E82B32 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47583822748AE300E82B32 /* CustomButton.swift */; };
 		DD5964DD2276476100CCFF39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD5964DC2276476100CCFF39 /* GoogleService-Info.plist */; };
+		DD6792F922EC96F600239B46 /* FeaturedDesignsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */; };
+		DD6792FC22EC97B300239B46 /* FeaturedDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792FB22EC97B300239B46 /* FeaturedDesignCell.swift */; };
+		DD6792FE22EC97CC00239B46 /* FeaturedDesignGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792FD22EC97CC00239B46 /* FeaturedDesignGroupCell.swift */; };
 		DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A12276F049004A80BE /* LoginViewController.swift */; };
 		DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A52276F63B004A80BE /* MainTabController.swift */; };
 		DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A722778C5F004A80BE /* MainListController.swift */; };
@@ -60,6 +63,9 @@
 		DD4758362274864100E82B32 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DD47583822748AE300E82B32 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DD5964DC2276476100CCFF39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeaturedDesignsController.swift; path = ../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Controllers/Designs/FeaturedDesignsController.swift; sourceTree = "<group>"; };
+		DD6792FB22EC97B300239B46 /* FeaturedDesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeaturedDesignCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Views/Feature Designs/FeaturedDesignCell.swift"; sourceTree = "<group>"; };
+		DD6792FD22EC97CC00239B46 /* FeaturedDesignGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeaturedDesignGroupCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Views/Feature Designs/FeaturedDesignGroupCell.swift"; sourceTree = "<group>"; };
 		DD69C8A12276F049004A80BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD69C8A52276F63B004A80BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		DD69C8A722778C5F004A80BE /* MainListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListController.swift; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 		DD5964DE2276669A00CCFF39 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD6792F722EC96A500239B46 /* Designs */,
 				DD69C8CF2279A0A3004A80BE /* Explore */,
 				DD5964E1227666C000CCFF39 /* StartupViewControllers */,
 				DD69C8A52276F63B004A80BE /* MainTabController.swift */,
@@ -181,8 +188,9 @@
 		DD5964DF227666A200CCFF39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD69C8D22279A180004A80BE /* CategoryCell.swift */,
+				DD6792FA22EC977E00239B46 /* Feature Designs */,
 				DD1D71B22286344000E477AF /* DesignCell.swift */,
+				DD69C8D22279A180004A80BE /* CategoryCell.swift */,
 				DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */,
 			);
 			path = Views;
@@ -207,6 +215,24 @@
 			path = StartupViewControllers;
 			sourceTree = "<group>";
 		};
+		DD6792F722EC96A500239B46 /* Designs */ = {
+			isa = PBXGroup;
+			children = (
+				DD69C8D42279E45B004A80BE /* DesignsListController.swift */,
+				DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */,
+			);
+			path = Designs;
+			sourceTree = "<group>";
+		};
+		DD6792FA22EC977E00239B46 /* Feature Designs */ = {
+			isa = PBXGroup;
+			children = (
+				DD6792FB22EC97B300239B46 /* FeaturedDesignCell.swift */,
+				DD6792FD22EC97CC00239B46 /* FeaturedDesignGroupCell.swift */,
+			);
+			path = "Feature Designs";
+			sourceTree = "<group>";
+		};
 		DD69C8BE2279A062004A80BE /* DesignerAppAdmin */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +251,6 @@
 			children = (
 				DD69C8D02279A149004A80BE /* CategoryViewController.swift */,
 				DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */,
-				DD69C8D42279E45B004A80BE /* DesignsListController.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -420,7 +445,9 @@
 				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
 				DD69C8D52279E45B004A80BE /* DesignsListController.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
+				DD6792FC22EC97B300239B46 /* FeaturedDesignCell.swift in Sources */,
 				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
+				DD6792FE22EC97CC00239B46 /* FeaturedDesignGroupCell.swift in Sources */,
 				DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */,
 				DDE60BAF22EB711E004D41D8 /* CustomApiDesigns.swift in Sources */,
 				DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */,
@@ -431,6 +458,7 @@
 				DD1D71B32286344000E477AF /* DesignCell.swift in Sources */,
 				DD69C8D92279EB12004A80BE /* Product.swift in Sources */,
 				DD69C8D72279EAC1004A80BE /* Category.swift in Sources */,
+				DD6792F922EC96F600239B46 /* FeaturedDesignsController.swift in Sources */,
 				DDE60BAA22EB6349004D41D8 /* ExploreViewController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
 				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
