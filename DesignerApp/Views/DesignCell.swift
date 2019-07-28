@@ -11,7 +11,7 @@ import UIKit
 class DesignCell: UICollectionViewCell {
     
     
-    var designImage = UIImageView(image: #imageLiteral(resourceName: "Rectangle"))
+    var designImage = UIImageView(image: #imageLiteral(resourceName: "DumbiPic"))
     let designLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 24.adjusted))
     let shadowView = UIView()
     
@@ -33,11 +33,9 @@ class DesignCell: UICollectionViewCell {
         
         addSubview(shadowView)
         shadowView.addSubview(designImage)
+        
         shadowView.fillSuperview()
         designImage.fillSuperview()
-        shadowView.addSubview(designLabel)
-        
-        designLabel.anchor(top: nil, leading: shadowView.leadingAnchor, bottom: shadowView.bottomAnchor, trailing: shadowView.trailingAnchor)
         designLabel.constrainHeight(constant: 50.adjusted)
     }
     

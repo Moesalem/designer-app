@@ -19,18 +19,19 @@ class CategoryCell: UICollectionViewCell {
         }
     }
     
-    var categoryImage = UIImageView(image: #imageLiteral(resourceName: "Rectangle"))
-    let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 24))
+    var categoryImage = UIImageView(image: #imageLiteral(resourceName: "DumbiPic"))
+    let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 18), numberOfLines: 2)
     let shadowView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        layer.cornerRadius = 8
+
         // UI Setup
         categoryImage.contentMode = .scaleAspectFill
         categoryImage.clipsToBounds = true
         categoryImage.layer.cornerRadius = 8
-        
         categoryLabel.textColor = .white
         categoryLabel.textAlignment = .center
         
@@ -39,12 +40,16 @@ class CategoryCell: UICollectionViewCell {
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOpacity = 0.4
         
+        categoryLabel.textColor = #colorLiteral(red: 0.8210753798, green: 0.6480794549, blue: 0.08877464384, alpha: 1)
+        
+        // Layout
         addSubview(shadowView)
         shadowView.addSubview(categoryImage)
-        shadowView.fillSuperview()
-        categoryImage.fillSuperview()
         shadowView.addSubview(categoryLabel)
         
+        shadowView.fillSuperview()
+        categoryImage.fillSuperview()
+
         categoryLabel.anchor(top: nil, leading: shadowView.leadingAnchor, bottom: shadowView.bottomAnchor, trailing: shadowView.trailingAnchor)
         categoryLabel.constrainHeight(constant: 50)
     }
@@ -52,5 +57,4 @@ class CategoryCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

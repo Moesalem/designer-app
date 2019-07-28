@@ -34,12 +34,12 @@
 		DD69C8C52279A062004A80BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C32279A062004A80BE /* Main.storyboard */; };
 		DD69C8C72279A064004A80BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C62279A064004A80BE /* Assets.xcassets */; };
 		DD69C8CA2279A064004A80BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C82279A064004A80BE /* LaunchScreen.storyboard */; };
-		DD69C8D12279A149004A80BE /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D02279A149004A80BE /* CategoryViewController.swift */; };
+		DD69C8D12279A149004A80BE /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D02279A149004A80BE /* CategoryController.swift */; };
 		DD69C8D32279A180004A80BE /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D22279A180004A80BE /* CategoryCell.swift */; };
 		DD69C8D52279E45B004A80BE /* DesignsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D42279E45B004A80BE /* DesignsListController.swift */; };
 		DD69C8D72279EAC1004A80BE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D62279EAC1004A80BE /* Category.swift */; };
 		DD69C8D92279EB12004A80BE /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D82279EB12004A80BE /* Product.swift */; };
-		DDE60BAA22EB6349004D41D8 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */; };
+		DDE60BAA22EB6349004D41D8 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BA922EB6349004D41D8 /* ExploreController.swift */; };
 		DDE60BAC22EB704B004D41D8 /* CategoryGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */; };
 		DDE60BAF22EB711E004D41D8 /* CustomApiDesigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */; };
 		DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BB722EB8110004D41D8 /* HorizontalController.swift */; };
@@ -79,12 +79,12 @@
 		DD69C8C62279A064004A80BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD69C8C92279A064004A80BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD69C8CB2279A064004A80BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD69C8D02279A149004A80BE /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		DD69C8D02279A149004A80BE /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		DD69C8D22279A180004A80BE /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		DD69C8D42279E45B004A80BE /* DesignsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignsListController.swift; sourceTree = "<group>"; };
 		DD69C8D62279EAC1004A80BE /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD69C8D82279EB12004A80BE /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		DDE60BA922EB6349004D41D8 /* ExploreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupCell.swift; sourceTree = "<group>"; };
 		DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiDesigns.swift; sourceTree = "<group>"; };
 		DDE60BB722EB8110004D41D8 /* HorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalController.swift; sourceTree = "<group>"; };
@@ -249,8 +249,8 @@
 		DD69C8CF2279A0A3004A80BE /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				DD69C8D02279A149004A80BE /* CategoryViewController.swift */,
-				DDE60BA922EB6349004D41D8 /* ExploreViewController.swift */,
+				DD69C8D02279A149004A80BE /* CategoryController.swift */,
+				DDE60BA922EB6349004D41D8 /* ExploreController.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -453,13 +453,13 @@
 				DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */,
 				DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */,
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,
-				DD69C8D12279A149004A80BE /* CategoryViewController.swift in Sources */,
+				DD69C8D12279A149004A80BE /* CategoryController.swift in Sources */,
 				DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */,
 				DD1D71B32286344000E477AF /* DesignCell.swift in Sources */,
 				DD69C8D92279EB12004A80BE /* Product.swift in Sources */,
 				DD69C8D72279EAC1004A80BE /* Category.swift in Sources */,
 				DD6792F922EC96F600239B46 /* FeaturedDesignsController.swift in Sources */,
-				DDE60BAA22EB6349004D41D8 /* ExploreViewController.swift in Sources */,
+				DDE60BAA22EB6349004D41D8 /* ExploreController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
 				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
 				DDE60BAC22EB704B004D41D8 /* CategoryGroupCell.swift in Sources */,

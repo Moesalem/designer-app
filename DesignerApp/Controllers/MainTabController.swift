@@ -19,8 +19,8 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 0.9654689431, green: 0.7616818547, blue: 0.1046115384, alpha: 1)
         
         viewControllers = [
-            createNavController(viewController: ExploreViewController(), name: "Explore", image: "images-icon", selectedImage: "colored-images-icon"),
-            createNavController(viewController: CategoryViewController(), name: "Explore", image: "search", selectedImage: "colored-search"),
+            createNavController(viewController: ExploreController(), name: "Explore", image: "images-icon", selectedImage: "colored-images-icon"),
+            createNavController(viewController: CategoryController(), name: "Explore", image: "search", selectedImage: "colored-search"),
             createNavController(viewController: UIViewController(), name: "Profile", image: "user-profile", selectedImage: "colored-user-profile")
         ]
         
