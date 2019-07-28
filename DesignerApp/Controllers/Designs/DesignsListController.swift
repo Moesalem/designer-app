@@ -53,6 +53,8 @@ extension DesignsListController {
         let product = products[indexPath.item]
         cell.designLabel.text = product.name
         cell.designImage.kf.setImage(with: URL(string: product.imgUrl), options: [.transition(.fade(0.2))])
+        cell.designImage.kf.indicatorType = .activity
+
         return cell
     }
 }

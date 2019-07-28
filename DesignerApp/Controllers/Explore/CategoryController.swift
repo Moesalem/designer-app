@@ -11,7 +11,7 @@ import Kingfisher
 import FirebaseFirestore
 import Firebase
 
-class CategoryViewController: HorizontalController {
+class CategoryController: HorizontalController {
     
     // MARK: - Properties
     
@@ -47,7 +47,7 @@ class CategoryViewController: HorizontalController {
     }
 
     override func viewDidDisappear(_ animated: Bool) {
-//        listener.remove() // stops realtime updates
+        // listener.remove() // stops realtime updates
 //        categories.removeAll()
         collectionView.reloadData()
     }
@@ -55,7 +55,7 @@ class CategoryViewController: HorizontalController {
 
 
 // MARK: - DataSource & Delegates
-extension CategoryViewController {
+extension CategoryController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
@@ -75,21 +75,20 @@ extension CategoryViewController {
 }
 
 // MARK: - Delegate Flow Layout
-extension CategoryViewController: UICollectionViewDelegateFlowLayout {
+extension CategoryController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let leftRightPadding = view.frame.width  * 0.02
-        let interSpacing = view.frame.width * 0.02
+        let leftRightPadding = view.frame.width  * 0.10
+        let interSpacing = view.frame.width * 0.10
         let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
         print(cellWidth)
-        return .init(width: cellWidth + 50, height: cellWidth - 20)
+        return .init(width: cellWidth, height: cellWidth + 25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let leftRightPadding = view.frame.width  * 0.02
-        print(leftRightPadding)
         return .init(top: 20, left: leftRightPadding, bottom: 10, right: leftRightPadding)
     }
     
@@ -105,7 +104,7 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Firebase Authentication Proccess
-extension CategoryViewController {
+extension CategoryController {
     
     fileprivate func anonymousUserSignIn() {
         if Auth.auth().currentUser == nil {
@@ -144,7 +143,7 @@ extension CategoryViewController {
 }
 
 // MARK: - Firestore
-extension CategoryViewController {
+extension CategoryController {
     
     func setCategoriesListener() {
 
@@ -158,7 +157,7 @@ extension CategoryViewController {
                 
                 let data = change.document.data()
                 let category = Category(data: data)
-                print(category.id)
+//                print(category.id)
                 switch change.type {
                 case .added:
                    self.onDocumentAdded(change: change, category: category)
