@@ -11,7 +11,10 @@ import UIKit
 class MainListController: UICollectionViewController {
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-        
+        collectionView.alwaysBounceVertical = true
+        collectionView.bounces = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
     }
     
     required init?(coder aDecoder: NSCoder) {
