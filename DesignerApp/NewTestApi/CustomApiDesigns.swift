@@ -12,82 +12,6 @@ struct CustomApi: Decodable {
     let title, body: String
 }
 
-class ApiNetwoking {
-    
-    static let shared = ApiNetwoking()
-    
-    func fetchDesigns(completion: @escaping (Result<[CustomApi], Error>) -> ()) {
-        
-        let urlString = "http://localhost:1337/posts"
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, resp, error) in
-            
-            DispatchQueue.main.async {
-                if let err = error {
-                    print("Failed to fetch: ", err.localizedDescription)
-                    completion(.failure(err))
-                    return
-                }
-                
-                guard let data = data else { return }
-                let decoder = JSONDecoder()
-                do {
-                    let designs = try decoder.decode([CustomApi].self, from: data)
-                    completion(.success(designs))
-                    
-                } catch let err {
-                    print(err)
-                    completion(.failure(err))
-                }
-                
-            }
-        }.resume()
-    }
-    
-    func createDesign(title: String, body: String, completion: (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/post") else { return }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        
-        let parms = ["title": title, "postBody": body]
-        
-        do {
-            let data = try JSONSerialization.data(withJSONObject: parms, options: .init())
-            urlRequest.httpBody = data
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            URLSession.shared.dataTask(with: urlRequest) { (data, resp, error) in
-                //                guard let data = data else { return }
-                
-            }.resume()
-            
-        } catch {
-            completion(error)
-        }
-    }
-    
-    func deleteDesign(id: Int, completion: @escaping (Error?) -> ()) {
-        guard let url = URL(string: "http://localhost:1337/post/\(id)") else { return }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "DELETE"
-        
-        URLSession.shared.dataTask(with: urlRequest) { (data, resp, error) in
-            //            guard let data = data else { return }
-            DispatchQueue.main.async {
-                if let err = error {
-                    completion(err)
-                }
-                print("Deleted")
-                completion(nil)
-            }
-        }.resume()
-    }
-    
-}
-
 class CustomApiDesigns: UITableViewController {
     
     fileprivate var customApi = [CustomApi]()
@@ -95,17 +19,15 @@ class CustomApiDesigns: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Ha"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(handleNewDesign))
-        //        navigationController?.navigationBar.barTintColor = .yellow
         
         fetchAllDesigns()
     }
     
     fileprivate func fetchAllDesigns() {
         
-        ApiNetwoking.shared.fetchDesigns { (res) in
+        Networking.shared.fetchDesigns { (res) in
             switch res{
             case .failure(let err):
                 print(err)
@@ -117,12 +39,11 @@ class CustomApiDesigns: UITableViewController {
     }
     
     @objc func handleNewDesign() {
-        ApiNetwoking.shared.createDesign(title: "iOS title", body: "iOS body") { (err) in
+        Networking.shared.createDesign(title: "iOS title", body: "iOS body") { (err) in
             if let err = err {
                 print(err)
                 return
             }
-            
             print("Created")
             self.fetchAllDesigns()
         }
@@ -143,15 +64,14 @@ class CustomApiDesigns: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let design = customApi[indexPath.row]
-            ApiNetwoking.shared.deleteDesign(id: design.id) { (err) in
+            Networking.shared.deleteDesign(id: design.id) { (err) in
                 if let err = err {
                     print("Failed to delete", err)
                     return
                 }
                 print("Row Deleted")
-                //                self.customApi.remove(at: indexPath.row)
-                //                tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.fetchAllDesigns()
+                self.customApi.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
     }
