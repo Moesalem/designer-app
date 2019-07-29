@@ -23,6 +23,8 @@
 		DD6792F922EC96F600239B46 /* FeaturedDesignsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */; };
 		DD6792FC22EC97B300239B46 /* FeaturedDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792FB22EC97B300239B46 /* FeaturedDesignCell.swift */; };
 		DD6792FE22EC97CC00239B46 /* FeaturedDesignGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792FD22EC97CC00239B46 /* FeaturedDesignGroupCell.swift */; };
+		DD67930022EF1A0800239B46 /* Netwoking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6792FF22EF1A0800239B46 /* Netwoking.swift */; };
+		DD67930422EF280300239B46 /* DesignDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67930322EF280300239B46 /* DesignDetailController.swift */; };
 		DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A12276F049004A80BE /* LoginViewController.swift */; };
 		DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A52276F63B004A80BE /* MainTabController.swift */; };
 		DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A722778C5F004A80BE /* MainListController.swift */; };
@@ -66,6 +68,8 @@
 		DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeaturedDesignsController.swift; path = ../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Controllers/Designs/FeaturedDesignsController.swift; sourceTree = "<group>"; };
 		DD6792FB22EC97B300239B46 /* FeaturedDesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeaturedDesignCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Views/Feature Designs/FeaturedDesignCell.swift"; sourceTree = "<group>"; };
 		DD6792FD22EC97CC00239B46 /* FeaturedDesignGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeaturedDesignGroupCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Views/Feature Designs/FeaturedDesignGroupCell.swift"; sourceTree = "<group>"; };
+		DD6792FF22EF1A0800239B46 /* Netwoking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Netwoking.swift; path = ../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/NewTestApi/Netwoking.swift; sourceTree = "<group>"; };
+		DD67930322EF280300239B46 /* DesignDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DesignDetailController.swift; path = ../../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Controllers/Designs/Details/DesignDetailController.swift; sourceTree = "<group>"; };
 		DD69C8A12276F049004A80BE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD69C8A52276F63B004A80BE /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		DD69C8A722778C5F004A80BE /* MainListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 		DD5964DF227666A200CCFF39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD67930122EF1DB900239B46 /* Details */,
 				DD6792FA22EC977E00239B46 /* Feature Designs */,
 				DD1D71B22286344000E477AF /* DesignCell.swift */,
 				DD69C8D22279A180004A80BE /* CategoryCell.swift */,
@@ -218,6 +223,7 @@
 		DD6792F722EC96A500239B46 /* Designs */ = {
 			isa = PBXGroup;
 			children = (
+				DD67930222EF1DE100239B46 /* Details */,
 				DD69C8D42279E45B004A80BE /* DesignsListController.swift */,
 				DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */,
 			);
@@ -231,6 +237,21 @@
 				DD6792FD22EC97CC00239B46 /* FeaturedDesignGroupCell.swift */,
 			);
 			path = "Feature Designs";
+			sourceTree = "<group>";
+		};
+		DD67930122EF1DB900239B46 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		DD67930222EF1DE100239B46 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				DD67930322EF280300239B46 /* DesignDetailController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		DD69C8BE2279A062004A80BE /* DesignerAppAdmin */ = {
@@ -259,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */,
+				DD6792FF22EF1A0800239B46 /* Netwoking.swift */,
 			);
 			path = NewTestApi;
 			sourceTree = "<group>";
@@ -448,10 +470,12 @@
 				DD6792FC22EC97B300239B46 /* FeaturedDesignCell.swift in Sources */,
 				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
 				DD6792FE22EC97CC00239B46 /* FeaturedDesignGroupCell.swift in Sources */,
+				DD67930422EF280300239B46 /* DesignDetailController.swift in Sources */,
 				DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */,
 				DDE60BAF22EB711E004D41D8 /* CustomApiDesigns.swift in Sources */,
 				DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */,
 				DD69C8A22276F049004A80BE /* LoginViewController.swift in Sources */,
+				DD67930022EF1A0800239B46 /* Netwoking.swift in Sources */,
 				DD47583922748AE300E82B32 /* CustomButton.swift in Sources */,
 				DD69C8D12279A149004A80BE /* CategoryController.swift in Sources */,
 				DD47583322743EB600E82B32 /* UIView+Layout.swift in Sources */,

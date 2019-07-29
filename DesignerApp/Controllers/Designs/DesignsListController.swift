@@ -57,6 +57,14 @@ extension DesignsListController {
 
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let designDetailController = DesignDetailController()
+        let selectedProduct = products[indexPath.item]
+        designDetailController.product = selectedProduct
+        designDetailController.navigationItem.title = selectedProduct.name
+        self.navigationController?.pushViewController(designDetailController, animated: true)
+    }
 }
 
 // MARK: - Delegate Flow Layout
