@@ -41,6 +41,7 @@ extension ExploreController {
             cell.categoryViewController.didSelectHandler = { selectedCategory in
                 let designsListController = DesignsListController()
                 designsListController.category = selectedCategory
+                designsListController.navigationItem.title = selectedCategory.name
                 self.navigationController?.pushViewController(designsListController, animated: true)
             }
             cell.categoryViewController.setCategoriesListener()
