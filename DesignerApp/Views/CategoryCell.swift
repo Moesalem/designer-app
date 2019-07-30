@@ -36,8 +36,7 @@ class CategoryCell: UICollectionViewCell {
         
         categoryLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         categoryLabel.textAlignment = .center
-        categoryLabel.sizeToFit()
-        categoryLabel.lineBreakMode = .byWordWrapping
+        
         shadowView.layer.cornerRadius = 8
         shadowView.layer.shadowRadius = 8
         shadowView.layer.shadowColor = UIColor.black.cgColor
@@ -52,8 +51,7 @@ class CategoryCell: UICollectionViewCell {
         shadowView.fillSuperview()
         categoryImage.fillSuperview()
 
-        categoryLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 20, left: 0, bottom: -20, right: 0))
-//        categoryLabel.constrainHeight(constant: 100)
+        categoryLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
     }
     
     required init?(coder aDecoder: NSCoder) {
