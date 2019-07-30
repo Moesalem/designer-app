@@ -20,7 +20,7 @@ class CategoryCell: UICollectionViewCell {
     }
     
     var categoryImage = UIImageView(image: #imageLiteral(resourceName: "DumbiPic"))
-    let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 18), numberOfLines: 2)
+    let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 20), numberOfLines: 0)
     let shadowView = UIView()
     
     override init(frame: CGRect) {
@@ -32,15 +32,17 @@ class CategoryCell: UICollectionViewCell {
         categoryImage.contentMode = .scaleAspectFill
         categoryImage.clipsToBounds = true
         categoryImage.layer.cornerRadius = 8
-        categoryLabel.textColor = .white
-        categoryLabel.textAlignment = .center
+        categoryImage.alpha = 0.6
         
+        categoryLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        categoryLabel.textAlignment = .center
+        categoryLabel.sizeToFit()
+        categoryLabel.lineBreakMode = .byWordWrapping
         shadowView.layer.cornerRadius = 8
         shadowView.layer.shadowRadius = 8
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOpacity = 0.4
-        
-        categoryLabel.textColor = #colorLiteral(red: 0.8210753798, green: 0.6480794549, blue: 0.08877464384, alpha: 1)
+        shadowView.clipsToBounds = true
         
         // Layout
         addSubview(shadowView)
@@ -50,8 +52,8 @@ class CategoryCell: UICollectionViewCell {
         shadowView.fillSuperview()
         categoryImage.fillSuperview()
 
-        categoryLabel.anchor(top: nil, leading: shadowView.leadingAnchor, bottom: shadowView.bottomAnchor, trailing: shadowView.trailingAnchor)
-        categoryLabel.constrainHeight(constant: 50)
+        categoryLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 20, left: 0, bottom: -20, right: 0))
+//        categoryLabel.constrainHeight(constant: 100)
     }
     
     required init?(coder aDecoder: NSCoder) {
