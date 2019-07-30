@@ -49,6 +49,14 @@ extension ExploreController {
             return cell
         } else if indexPath.item == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: featureDesignCellId, for: indexPath) as! FeaturedDesignGroupCell
+            
+            cell.featuredDesignController.didSelectProductHandler = { selectedProduct in
+                let designDetailController = DesignDetailController()
+                designDetailController.product = selectedProduct
+                designDetailController.navigationItem.title = selectedProduct.name
+                self.navigationController?.pushViewController(designDetailController, animated: true)
+
+            }
             cell.featuredDesignController.fetchFeaturedDesigns()
             cell.featuredDesignController.listener.remove()
 //            cell.featuredDesignController.products.removeAll() // confused

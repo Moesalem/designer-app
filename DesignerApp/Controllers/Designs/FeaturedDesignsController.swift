@@ -15,8 +15,12 @@ class FeaturedDesignsController: HorizontalController {
     // MARK: - Properties
     
     fileprivate let featuredCellId = "featuredCellId"
+   
     var listener: ListenerRegistration!
+    
     var products = [Product]()
+    
+    var didSelectProductHandler: ((Product) -> ())!
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -49,6 +53,11 @@ extension FeaturedDesignsController {
         cell.featureDesignImage.kf.indicatorType = .activity
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCell = products[indexPath.item]
+        didSelectProductHandler(selectedCell)
     }
 }
 
