@@ -23,9 +23,6 @@ class CategoryController: HorizontalController {
     // To track the listener
     fileprivate var listener: ListenerRegistration!
     
-    // Login/Logout Button
-    fileprivate let leftBarBtn = UIBarButtonItem()
-    
     var didSelectHandler: ((Category) -> ())?
     
     // MARK: - viewDidLoad
@@ -34,16 +31,6 @@ class CategoryController: HorizontalController {
         
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
-        
-        self.navigationItem.leftBarButtonItem = leftBarBtn
-        leftBarBtn.action = #selector(signInOutBtn)
-        leftBarBtn.target = self
-    }
-    
-    //MARK:- viewDidAppear
-    override func viewDidAppear(_ animated: Bool) {
-//        setCategoriesListener()
-        userState()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -82,7 +69,7 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
         let leftRightPadding = view.frame.width  * 0.10
         let interSpacing = view.frame.width * 0.10
         let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
-        print(cellWidth)
+//        print(cellWidth)
         return .init(width: cellWidth, height: cellWidth + 25)
     }
     
@@ -100,45 +87,6 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
-    }
-}
-
-// MARK: - Firebase Authentication Proccess
-extension CategoryController {
-    
-    fileprivate func anonymousUserSignIn() {
-        if Auth.auth().currentUser == nil {
-            Auth.auth().signInAnonymously { (res, error) in
-                if let error = error {
-                    debugPrint("Error Signing in as anonymous", error.localizedDescription)
-                }
-                print("success")
-            }
-        }
-    }
-    
-    @objc func signInOutBtn() {
-        
-        guard let user = Auth.auth().currentUser else { return }
-        if user.isAnonymous {
-            present(StartupViewController(), animated: true, completion: nil)
-        } else {
-            do {
-                try Auth.auth().signOut()
-                print("Logout Successfully")
-                anonymousUserSignIn()
-            } catch {
-                debugPrint("Error Signing out user: ", error.localizedDescription)
-            }
-        }
-    }
-    
-    fileprivate func userState() {
-        if let user = Auth.auth().currentUser, !user.isAnonymous {
-            leftBarBtn.title = "Logout"
-        } else {
-            leftBarBtn.title = "Login"
-        }
     }
 }
 
