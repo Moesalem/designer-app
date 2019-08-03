@@ -14,6 +14,8 @@ class ExploreController: MainListController {
     
     fileprivate let categoryCellId = "cellId"
     fileprivate let featureDesignCellId = "featureDesignCellId"
+    fileprivate let discountedDesignCellId = "discountedDesignCellId"
+
     var categoryVC = CategoryController()
     
     // MARK: - viewDidLoad
@@ -23,6 +25,7 @@ class ExploreController: MainListController {
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
         collectionView.register(CategoryGroupCell.self, forCellWithReuseIdentifier: categoryCellId)
         collectionView.register(FeaturedDesignGroupCell.self, forCellWithReuseIdentifier: featureDesignCellId)
+        collectionView.register(DiscountedDesignCell.self, forCellWithReuseIdentifier: discountedDesignCellId)
     }
 }
 
@@ -31,7 +34,7 @@ class ExploreController: MainListController {
 extension ExploreController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,6 +65,10 @@ extension ExploreController {
 //            cell.featuredDesignController.products.removeAll() // confused
             cell.featuredDesignController.collectionView.reloadData()
             return cell
+        } else if  indexPath.item == 2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: discountedDesignCellId, for: indexPath)
+            
+            return cell
         }
         return UICollectionViewCell()
     }
@@ -74,8 +81,10 @@ extension ExploreController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 {
             return .init(width: view.frame.width, height: 250)
-        } else {
+        } else if indexPath.item == 1 {
             return .init(width: view.frame.width, height: 350)
+        } else  {
+            return .init(width: view.frame.width, height: 850)
         }
     }
 }
