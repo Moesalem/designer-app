@@ -11,6 +11,8 @@
 		D113D76A6B657A92D2A21E3B /* Pods_DesignerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A175600D31D45357FC7F7654 /* Pods_DesignerApp.framework */; };
 		DD1D71B32286344000E477AF /* DesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D71B22286344000E477AF /* DesignCell.swift */; };
 		DD37272F22F2461D00E62549 /* TestImageAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37272E22F2461D00E62549 /* TestImageAnimation.swift */; };
+		DD37273522F509A000E62549 /* DiscountedDesignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37273422F509A000E62549 /* DiscountedDesignController.swift */; };
+		DD37273922F50A8500E62549 /* DiscountedDesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37273822F50A8500E62549 /* DiscountedDesignCell.swift */; };
 		DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47581922741C9D00E82B32 /* AppDelegate.swift */; };
 		DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47581B22741C9D00E82B32 /* StartupViewController.swift */; };
 		DD47581F22741C9D00E82B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD47581D22741C9D00E82B32 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		CBE4890BDCC4719B8E8ED58D /* Pods-DesignerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesignerApp/Pods-DesignerApp.release.xcconfig"; sourceTree = "<group>"; };
 		DD1D71B22286344000E477AF /* DesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCell.swift; sourceTree = "<group>"; };
 		DD37272E22F2461D00E62549 /* TestImageAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestImageAnimation.swift; path = ../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/NewTestApi/TestImageAnimation.swift; sourceTree = "<group>"; };
+		DD37273422F509A000E62549 /* DiscountedDesignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscountedDesignController.swift; path = ../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Controllers/Designs/DiscountedDesignController.swift; sourceTree = "<group>"; };
+		DD37273822F50A8500E62549 /* DiscountedDesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DiscountedDesignCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/moe/Dev/iOS/DesignerApp/DesignerApp/Views/Discounted cellView/DiscountedDesignCell.swift"; sourceTree = "<group>"; };
 		DD47581622741C9D00E82B32 /* DesignerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD47581922741C9D00E82B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD47581B22741C9D00E82B32 /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +131,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD37273622F50A2A00E62549 /* category cellView */ = {
+			isa = PBXGroup;
+			children = (
+				DD69C8D22279A180004A80BE /* CategoryCell.swift */,
+				DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */,
+			);
+			path = "category cellView";
+			sourceTree = "<group>";
+		};
+		DD37273722F50A5300E62549 /* Discounted cellView */ = {
+			isa = PBXGroup;
+			children = (
+				DD37273822F50A8500E62549 /* DiscountedDesignCell.swift */,
+			);
+			path = "Discounted cellView";
+			sourceTree = "<group>";
+		};
 		DD47580D22741C9D00E82B32 = {
 			isa = PBXGroup;
 			children = (
@@ -194,11 +215,11 @@
 		DD5964DF227666A200CCFF39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD37273722F50A5300E62549 /* Discounted cellView */,
+				DD37273622F50A2A00E62549 /* category cellView */,
 				DD67930122EF1DB900239B46 /* Details */,
 				DD6792FA22EC977E00239B46 /* Feature Designs */,
 				DD1D71B22286344000E477AF /* DesignCell.swift */,
-				DD69C8D22279A180004A80BE /* CategoryCell.swift */,
-				DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +249,7 @@
 				DD67930222EF1DE100239B46 /* Details */,
 				DD69C8D42279E45B004A80BE /* DesignsListController.swift */,
 				DD6792F822EC96F600239B46 /* FeaturedDesignsController.swift */,
+				DD37273422F509A000E62549 /* DiscountedDesignController.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -486,8 +508,10 @@
 				DD69C8D92279EB12004A80BE /* Product.swift in Sources */,
 				DD69C8D72279EAC1004A80BE /* Category.swift in Sources */,
 				DD6792F922EC96F600239B46 /* FeaturedDesignsController.swift in Sources */,
+				DD37273922F50A8500E62549 /* DiscountedDesignCell.swift in Sources */,
 				DDE60BAA22EB6349004D41D8 /* ExploreController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
+				DD37273522F509A000E62549 /* DiscountedDesignController.swift in Sources */,
 				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
 				DDE60BAC22EB704B004D41D8 /* CategoryGroupCell.swift in Sources */,
 				DD47583522743EB600E82B32 /* VerticalStackView.swift in Sources */,
