@@ -215,9 +215,9 @@
 		DD5964DF227666A200CCFF39 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DD37273722F50A5300E62549 /* Discounted cellView */,
-				DD37273622F50A2A00E62549 /* category cellView */,
 				DD67930122EF1DB900239B46 /* Details */,
+				DD37273622F50A2A00E62549 /* category cellView */,
+				DD37273722F50A5300E62549 /* Discounted cellView */,
 				DD6792FA22EC977E00239B46 /* Feature Designs */,
 				DD1D71B22286344000E477AF /* DesignCell.swift */,
 			);

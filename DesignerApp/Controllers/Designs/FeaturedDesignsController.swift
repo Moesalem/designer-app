@@ -66,23 +66,28 @@ extension FeaturedDesignsController {
 extension FeaturedDesignsController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: 200, height: 300)
+        
+        let leftRightPadding = view.frame.width  * 0.002
+        let interSpacing = view.frame.width * 0.002
+        let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
+        //        print(cellWidth)
+        return .init(width: cellWidth, height: cellWidth + 70)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let leftRightPadding = view.frame.width  * 0.02
-        // print(leftRightPadding)
-        return .init(top: 20.adjusted, left: leftRightPadding.adjusted, bottom: 20.adjusted, right: leftRightPadding.adjusted)
+        return .init(top: 20, left: leftRightPadding, bottom: 10, right: leftRightPadding)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         let interSpacing = view.frame.width * 0.02
-        return interSpacing.adjusted
+        return interSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.adjusted
+        return 20
     }
 }
 

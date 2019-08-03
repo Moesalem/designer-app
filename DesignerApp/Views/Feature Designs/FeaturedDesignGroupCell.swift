@@ -20,8 +20,8 @@ class FeaturedDesignGroupCell: UICollectionViewCell {
         addSubview(featuredLabel)
         addSubview(featuredDesignController.view)
         
-        featuredLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 0, right: 0))
-        featuredDesignController.view.anchor(top: featuredLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 5, left: 0, bottom: 8, right: 0))
+        featuredLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 8, bottom: 0, right: 0))
+        featuredDesignController.view.anchor(top: featuredLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {

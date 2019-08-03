@@ -23,7 +23,7 @@ class CategoryGroupCell: UICollectionViewCell {
         addSubview(label)
         
         label.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 15, left: 8, bottom: 0, right: 0))
-        categoryViewController.view.anchor(top: label.topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 8, right: 0))
+        categoryViewController.view.anchor(top: label.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 8, right: 0))
     }
     
     required init?(coder aDecoder: NSCoder) {
