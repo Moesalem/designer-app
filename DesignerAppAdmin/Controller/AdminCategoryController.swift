@@ -1,8 +1,8 @@
 //
-//  CategoryViewControllerController.swift
-//  DesignerApp
+//  AdminCategoryController.swift
+//  DesignerAppAdmin
 //
-//  Created by Moe on 01/05/2019.
+//  Created by Moe on 06/08/2019.
 //  Copyright © 2019 Mohammed salem bajuaifer. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Kingfisher
 import FirebaseFirestore
 import Firebase
 
-class AdminController: MainListController {
+class AdminCategoryController: MainListController {
     
     // MARK: - Properties
     
@@ -53,7 +53,7 @@ class AdminController: MainListController {
 
 
 // MARK: - DataSource & Delegates
-extension AdminController {
+extension AdminCategoryController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
@@ -68,7 +68,7 @@ extension AdminController {
 }
 
 // MARK: - Delegate Flow Layout
-extension AdminController: UICollectionViewDelegateFlowLayout {
+extension AdminCategoryController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -97,7 +97,7 @@ extension AdminController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Firestore
-extension AdminController {
+extension AdminCategoryController {
     
     func setCategoriesListener() {
 
