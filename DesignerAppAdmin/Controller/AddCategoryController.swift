@@ -12,6 +12,7 @@ import Firebase
 
 class AddCategoryController: UIViewController {
     
+    // MARK: - Variables
     var categoryToEdit: Category?
     
     let enterCategoryLabel: UILabel = {
@@ -24,7 +25,6 @@ class AddCategoryController: UIViewController {
     let categoryNameTextField: CustomTextField = {
         var txtField = CustomTextField()
         txtField.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        //        txtField.placeholder = "Enter Category Name"
         txtField.layer.borderColor = UIColor.gray.cgColor
         txtField.attributedPlaceholder = NSAttributedString(string: "Enter Category Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         txtField.constrainHeight(constant: 50)
@@ -48,7 +48,7 @@ class AddCategoryController: UIViewController {
         return btn
     }()
     
-    let addCategoryBtn: UIButton = {
+    let addEditCategoryBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         btn.setTitle("Add Category", for: .normal)
@@ -68,39 +68,24 @@ class AddCategoryController: UIViewController {
         return activiyIndicator
     }()
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Category"
         view.backgroundColor = .white
-        
-        view.addSubview(enterCategoryLabel)
-        view.addSubview(categoryNameTextField)
-        view.addSubview(categoryImageView)
-        view.addSubview(imageBtn)
-        view.addSubview(addCategoryBtn)
-        view.addSubview(activityIndicator)
-        
-        enterCategoryLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
-        
-        categoryNameTextField.anchor(top:  enterCategoryLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 30, left: 10, bottom: 0, right: 10))
-        
-        categoryImageView.centerInSuperview()
-        
-        imageBtn.anchor(top: categoryImageView.topAnchor, leading: categoryImageView.leadingAnchor, bottom: categoryImageView.bottomAnchor, trailing: categoryImageView.trailingAnchor)
-        
-        addCategoryBtn.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 30, right: 10))
-        
-        activityIndicator.centerInSuperview()
+
+        setupViews()
         editCategory()
     }
     
+    // MARK: - Edit Category
     // if categoryToEdit != nil
     func editCategory() {
         
         if let category = categoryToEdit {
             categoryNameTextField.text = category.name
-            addCategoryBtn.setTitle("Edit Category", for: .normal)
+            addEditCategoryBtn.setTitle("Save Changes", for: .normal)
             if let url = URL(string: category.imgUrl) {
                 categoryImageView.contentMode = .scaleAspectFill
                 categoryImageView.kf.setImage(with: url)
@@ -108,6 +93,7 @@ class AddCategoryController: UIViewController {
         }
     }
     
+    // MARK: - Other Methods
     @objc func imageTapped() {
         imagePickerClicked()
     }
@@ -117,8 +103,39 @@ class AddCategoryController: UIViewController {
         activityIndicator.startAnimating()
     }
     
-    func uploadCategory() {
+    func handleError(error: Error, errMsg: String) {
+        print("Error", error.localizedDescription)
+        self.simpleAlert(title: "Error", msg: errMsg)
+    }
+    
+    
+    fileprivate func setupViews() {
         
+          view.addSubview(enterCategoryLabel)
+          view.addSubview(categoryNameTextField)
+          view.addSubview(categoryImageView)
+          view.addSubview(imageBtn)
+          view.addSubview(addEditCategoryBtn)
+          view.addSubview(activityIndicator)
+          
+          enterCategoryLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
+          
+          categoryNameTextField.anchor(top:  enterCategoryLabel.bottomAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 30, left: 10, bottom: 0, right: 10))
+          
+          categoryImageView.centerInSuperview()
+          
+          imageBtn.anchor(top: categoryImageView.topAnchor, leading: categoryImageView.leadingAnchor, bottom: categoryImageView.bottomAnchor, trailing: categoryImageView.trailingAnchor)
+          
+          addEditCategoryBtn.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 30, right: 10))
+          
+          activityIndicator.centerInSuperview()
+      }
+}
+
+// MARK: - Upload Category & Write Document
+extension AddCategoryController {
+    
+    fileprivate func uploadCategory() {
         guard let image = categoryImageView.image,
             let categoryName = categoryNameTextField.text, !categoryName.isEmpty else {
                 self.simpleAlert(title: "Error", msg: "Categoy Name & Image must not be empty")
@@ -152,7 +169,7 @@ class AddCategoryController: UIViewController {
         }
     }
     
-    func writeDocument(url: String) {
+    fileprivate func writeDocument(url: String) {
         let docRef: DocumentReference!
         
         var category = Category(name: categoryNameTextField.text!, id: "", imgUrl: url, timestamp: Timestamp())
@@ -174,13 +191,9 @@ class AddCategoryController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
-    func handleError(error: Error, errMsg: String) {
-        print("Error", error.localizedDescription)
-        self.simpleAlert(title: "Error", msg: errMsg)
-    }
 }
 
+// MARK: - ImagePicker
 extension AddCategoryController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerClicked() {

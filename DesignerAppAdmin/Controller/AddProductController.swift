@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 class AddProductController: UIViewController {
     
+    // MARK: - Variables
     var selectedCategory: Category!
     var productToEdit: Product?
     
@@ -55,7 +56,7 @@ class AddProductController: UIViewController {
         return btn
     }()
     
-    let addProductBtn: UIButton = {
+    let addEditProductBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         btn.setTitle("Add Category", for: .normal)
@@ -75,22 +76,52 @@ class AddProductController: UIViewController {
          return activiyIndicator
     }()
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("HII", selectedCategory.id)
-        print("LLOOOL", productToEdit?.id ?? "NO NO")
-        
-        navigationItem.title = "Category"
+        navigationItem.title = "Product Info"
         view.backgroundColor = .white
         
+        setupViews()
+        editProduct()
+    }
+
+    // MARK: - Edit Product
+    fileprivate func editProduct() {
+        if let productToEdit = productToEdit {
+            productNameTextField.text = productToEdit.name
+            productPriceTextField.text = String(productToEdit.price)
+            addEditProductBtn.setTitle("Save Changes", for: .normal)
+            if let url = URL(string: productToEdit.imgUrl) {
+                productImageView.kf.setImage(with: url)
+            }
+        }
+    }
+    
+    // MARK: - Other methods
+    @objc func imageTapped() {
+        imagePickerClicked()
+    }
+    
+    @objc func addProductClicked() {
+        uploadProduct()
+        activityIndicator.startAnimating()
+    }
+    
+    func handleError(error: Error, errMsg: String) {
+          print("Error", error.localizedDescription)
+          self.simpleAlert(title: "Error", msg: errMsg)
+      }
+    
+    fileprivate func setupViews() {
         view.addSubview(productNameLabel)
         view.addSubview(productNameTextField)
         view.addSubview(productPriceTextField)
         
         view.addSubview(productImageView)
         view.addSubview(imageBtn)
-        view.addSubview(addProductBtn)
+        view.addSubview(addEditProductBtn)
         view.addSubview(activityIndicator)
         
         productNameLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 30, left: 10, bottom: 0, right: 10))
@@ -103,30 +134,14 @@ class AddProductController: UIViewController {
         
         imageBtn.anchor(top: productImageView.topAnchor, leading: productImageView.leadingAnchor, bottom: productImageView.bottomAnchor, trailing: productImageView.trailingAnchor)
         
-        addProductBtn.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 30, right: 10))
+        addEditProductBtn.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 30, right: 10))
         
         activityIndicator.centerInSuperview()
+    }
+}
 
-        if let productToEdit = productToEdit {
-            productNameTextField.text = productToEdit.name
-            productPriceTextField.text = String(productToEdit.price)
-            addProductBtn.setTitle("Save Changes", for: .normal)
-            if let url = URL(string: productToEdit.imgUrl) {
-                productImageView.kf.setImage(with: url)
-            }
-        }
-    }
-    
-    
-    @objc func imageTapped() {
-        imagePickerClicked()
-    }
-    
-    @objc func addProductClicked() {
-        uploadProduct()
-        activityIndicator.startAnimating()
-    }
-    
+// MARK: - upload & write
+extension AddProductController {
     func uploadProduct() {
         
         guard let image = productImageView.image,
@@ -166,16 +181,14 @@ class AddProductController: UIViewController {
         
         var product = Product.init(name: productNameTextField.text!, id: "", category: selectedCategory.id, imgUrl: url, price: Double(productPriceTextField.text!)!, timestamp: Timestamp(), isFeatured: true)
         
-        
         if let productToEdit = productToEdit {
             docRef = Firestore.firestore().collection("Products").document(productToEdit.id)
             product.id = productToEdit.id
-            print(productToEdit.id)
         } else {
             docRef = Firestore.firestore().collection("Products").document()
             product.id = docRef.documentID
         }
-      
+        
         let productData = Product.modelToData(product: product)
         
         docRef.setData(productData, merge: true) { (error) in
@@ -187,13 +200,9 @@ class AddProductController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-    
-    func handleError(error: Error, errMsg: String) {
-          print("Error", error.localizedDescription)
-          self.simpleAlert(title: "Error", msg: errMsg)
-      }
 }
 
+// MARK: - ImagePicker
 extension AddProductController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerClicked() {

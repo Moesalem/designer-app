@@ -25,8 +25,6 @@ class AdminCategoryController: CategoryController {
         
         navigationItem.title = "Admin"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goAddCategory))
-        
-        
     }
     
     @objc func goAddCategory(){
@@ -35,10 +33,9 @@ class AdminCategoryController: CategoryController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let adminProductController = AdminProductController()
-        
         adminProductController.category = categories[indexPath.item]
         adminProductController.navigationItem.title = categories[indexPath.item].name
-         self.navigationController?.pushViewController(adminProductController, animated: true)
+        self.navigationController?.pushViewController(adminProductController, animated: true)
     }
     
 }
