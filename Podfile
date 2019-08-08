@@ -8,6 +8,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
 pod 'Kingfisher', '~> 5.0'
+pod 'IQKeyboardManagerSwift'
+
 
 end
 target 'DesignerApp' do
@@ -24,5 +26,6 @@ target 'DesignerAppAdmin' do
   use_frameworks!
 
   # Pods for DesignerAppAdmin
+pod 'Firebase/Storage'
 shared_pods
 end

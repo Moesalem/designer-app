@@ -10,6 +10,12 @@
 		BBD8427F58EB141C34025ED1 /* Pods_DesignerAppAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E717336B1B20D9F5329EFCD4 /* Pods_DesignerAppAdmin.framework */; };
 		D113D76A6B657A92D2A21E3B /* Pods_DesignerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A175600D31D45357FC7F7654 /* Pods_DesignerApp.framework */; };
 		DD17820422F9D81B00F88DA0 /* AdminProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17820322F9D81B00F88DA0 /* AdminProductController.swift */; };
+		DD17820622FA2A8800F88DA0 /* AddProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17820522FA2A8800F88DA0 /* AddProductController.swift */; };
+		DD17820722FA2C3100F88DA0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D82279EB12004A80BE /* Product.swift */; };
+		DD17821022FA357E00F88DA0 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D02279A149004A80BE /* CategoryController.swift */; };
+		DD17821222FAD1B500F88DA0 /* DesignsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D42279E45B004A80BE /* DesignsListController.swift */; };
+		DD17821322FAFDF400F88DA0 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BB722EB8110004D41D8 /* HorizontalController.swift */; };
+		DD17821422FC068500F88DA0 /* DesignDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67930322EF280300239B46 /* DesignDetailController.swift */; };
 		DD1D71B32286344000E477AF /* DesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D71B22286344000E477AF /* DesignCell.swift */; };
 		DD37272F22F2461D00E62549 /* TestImageAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37272E22F2461D00E62549 /* TestImageAnimation.swift */; };
 		DD37273522F509A000E62549 /* DiscountedDesignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37273422F509A000E62549 /* DiscountedDesignController.swift */; };
@@ -18,7 +24,6 @@
 		DD3C7AC222F90066004145EB /* MainListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8A722778C5F004A80BE /* MainListController.swift */; };
 		DD3C7AC322F9008E004145EB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D62279EAC1004A80BE /* Category.swift */; };
 		DD3C7AC422F900B5004145EB /* Firebase+Utilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */; };
-		DD3C7AC822F90408004145EB /* AdminCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C7AC722F90408004145EB /* AdminCategoryCell.swift */; };
 		DD3C7ACA22F904AB004145EB /* AdminCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C7AC922F904AB004145EB /* AdminCategoryController.swift */; };
 		DD47581A22741C9D00E82B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47581922741C9D00E82B32 /* AppDelegate.swift */; };
 		DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD47581B22741C9D00E82B32 /* StartupViewController.swift */; };
@@ -42,7 +47,6 @@
 		DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B12278AE67004A80BE /* Firebase+Utilies.swift */; };
 		DD69C8B82278B0CB004A80BE /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */; };
 		DD69C8C02279A062004A80BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8BF2279A062004A80BE /* AppDelegate.swift */; };
-		DD69C8C22279A062004A80BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8C12279A062004A80BE /* ViewController.swift */; };
 		DD69C8C52279A062004A80BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C32279A062004A80BE /* Main.storyboard */; };
 		DD69C8C72279A064004A80BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C62279A064004A80BE /* Assets.xcassets */; };
 		DD69C8CA2279A064004A80BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69C8C82279A064004A80BE /* LaunchScreen.storyboard */; };
@@ -73,12 +77,12 @@
 		A175600D31D45357FC7F7654 /* Pods_DesignerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesignerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBE4890BDCC4719B8E8ED58D /* Pods-DesignerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesignerApp/Pods-DesignerApp.release.xcconfig"; sourceTree = "<group>"; };
 		DD17820322F9D81B00F88DA0 /* AdminProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductController.swift; sourceTree = "<group>"; };
+		DD17820522FA2A8800F88DA0 /* AddProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductController.swift; sourceTree = "<group>"; };
 		DD1D71B22286344000E477AF /* DesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCell.swift; sourceTree = "<group>"; };
 		DD37272E22F2461D00E62549 /* TestImageAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageAnimation.swift; sourceTree = "<group>"; };
 		DD37273422F509A000E62549 /* DiscountedDesignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedDesignController.swift; sourceTree = "<group>"; };
 		DD37273822F50A8500E62549 /* DiscountedDesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedDesignCell.swift; sourceTree = "<group>"; };
 		DD3C7AC022F8FB05004145EB /* AddCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryController.swift; sourceTree = "<group>"; };
-		DD3C7AC722F90408004145EB /* AdminCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCategoryCell.swift; sourceTree = "<group>"; };
 		DD3C7AC922F904AB004145EB /* AdminCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCategoryController.swift; sourceTree = "<group>"; };
 		DD47581622741C9D00E82B32 /* DesignerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD47581922741C9D00E82B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +109,6 @@
 		DD69C8B72278B0CB004A80BE /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		DD69C8BD2279A062004A80BE /* DesignerAppAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignerAppAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD69C8BF2279A062004A80BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD69C8C12279A062004A80BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD69C8C42279A062004A80BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD69C8C62279A064004A80BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD69C8C92279A064004A80BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -307,7 +310,6 @@
 				DDDFDC2022F8F718006BD36A /* Model */,
 				DDDFDC1F22F8F701006BD36A /* Controller */,
 				DD69C8BF2279A062004A80BE /* AppDelegate.swift */,
-				DD69C8C12279A062004A80BE /* ViewController.swift */,
 				DD69C8C32279A062004A80BE /* Main.storyboard */,
 				DD69C8C62279A064004A80BE /* Assets.xcassets */,
 				DD69C8C82279A064004A80BE /* LaunchScreen.storyboard */,
@@ -332,6 +334,7 @@
 				DD3C7AC022F8FB05004145EB /* AddCategoryController.swift */,
 				DD3C7AC922F904AB004145EB /* AdminCategoryController.swift */,
 				DD17820322F9D81B00F88DA0 /* AdminProductController.swift */,
+				DD17820522FA2A8800F88DA0 /* AddProductController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,7 +349,6 @@
 		DDDFDC2122F8F760006BD36A /* Viewss */ = {
 			isa = PBXGroup;
 			children = (
-				DD3C7AC722F90408004145EB /* AdminCategoryCell.swift */,
 			);
 			path = Viewss;
 			sourceTree = "<group>";
@@ -594,22 +596,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD17820622FA2A8800F88DA0 /* AddProductController.swift in Sources */,
 				DD3C7AC422F900B5004145EB /* Firebase+Utilies.swift in Sources */,
-				DD69C8C22279A062004A80BE /* ViewController.swift in Sources */,
 				DD8E237D22F8DD8200684736 /* ForgotPasswordController.swift in Sources */,
+				DD17821022FA357E00F88DA0 /* CategoryController.swift in Sources */,
 				DD8E237122F8DD6F00684736 /* CustomButton.swift in Sources */,
 				DD3C7AC222F90066004145EB /* MainListController.swift in Sources */,
+				DD17821422FC068500F88DA0 /* DesignDetailController.swift in Sources */,
+				DD17821322FAFDF400F88DA0 /* HorizontalController.swift in Sources */,
 				DD69C8C02279A062004A80BE /* AppDelegate.swift in Sources */,
 				DD8E236B22F8DD5100684736 /* FeaturedDesignCell.swift in Sources */,
 				DD3C7ACA22F904AB004145EB /* AdminCategoryController.swift in Sources */,
+				DD17821222FAD1B500F88DA0 /* DesignsListController.swift in Sources */,
 				DD8E237222F8DD6F00684736 /* Extensions.swift in Sources */,
-				DD3C7AC822F90408004145EB /* AdminCategoryCell.swift in Sources */,
 				DD8E236822F8DD5100684736 /* CategoryCell.swift in Sources */,
 				DD17820422F9D81B00F88DA0 /* AdminProductController.swift in Sources */,
 				DD8E237022F8DD6F00684736 /* CustomTextField.swift in Sources */,
 				DD8E236F22F8DD6F00684736 /* VerticalStackView.swift in Sources */,
 				DD8E236D22F8DD5100684736 /* DesignCell.swift in Sources */,
 				DD3C7AC122F8FB05004145EB /* AddCategoryController.swift in Sources */,
+				DD17820722FA2C3100F88DA0 /* Product.swift in Sources */,
 				DD8E236E22F8DD6F00684736 /* UIView+Layout.swift in Sources */,
 				DD3C7AC322F9008E004145EB /* Category.swift in Sources */,
 			);
@@ -819,7 +825,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9HB64RUKQ;
 				INFOPLIST_FILE = DesignerAppAdmin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -839,7 +845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9HB64RUKQ;
 				INFOPLIST_FILE = DesignerAppAdmin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
