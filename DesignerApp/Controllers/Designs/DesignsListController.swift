@@ -14,9 +14,9 @@ class DesignsListController: MainListController {
     
     // MARK: - Properties
     
-    fileprivate let cellId = "cellId"
+    let desingCellId = "desingCellId"
     
-    fileprivate var products = [Product]()
+    var products = [Product]()
     
     var category: Category?
     
@@ -26,7 +26,7 @@ class DesignsListController: MainListController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
-        collectionView.register(DesignCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(DesignCell.self, forCellWithReuseIdentifier: desingCellId)
         
     }
     
@@ -49,7 +49,7 @@ extension DesignsListController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DesignCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: desingCellId, for: indexPath) as! DesignCell
         let product = products[indexPath.item]
         cell.designLabel.text = product.name
         cell.designImage.kf.setImage(with: URL(string: product.imgUrl), options: [.transition(.fade(0.2))])

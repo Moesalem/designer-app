@@ -11,7 +11,7 @@ import UIKit
 class DesignCell: UICollectionViewCell {
     
     
-    var designImage = UIImageView(image: #imageLiteral(resourceName: "DumbiPic"))
+    var designImage = UIImageView()
     let designLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 24.adjusted))
     let shadowView = UIView()
     
