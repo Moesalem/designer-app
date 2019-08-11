@@ -34,11 +34,11 @@ class CategoryController: HorizontalController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        setCategoriesListener()
+//        setCategoriesListener()
     }
     override func viewDidDisappear(_ animated: Bool) {
-        listener.remove() // stops realtime updates
-        categories.removeAll()
+//        listener.remove() // stops realtime updates
+//        categories.removeAll()
         collectionView.reloadData()
     }
 }
@@ -72,7 +72,7 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
         let leftRightPadding = view.frame.width  * 0.10
         let interSpacing = view.frame.width * 0.10
         let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
-//        print(cellWidth)
+        //        print(cellWidth)
         return .init(width: cellWidth, height: cellWidth + 25)
     }
     
@@ -97,7 +97,7 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
 extension CategoryController {
     
     func setCategoriesListener() {
-
+        
         listener = Firestore.firestore().categoriesByTimestamp.addSnapshotListener { (snapshot, error) in
             
             if let error = error {
