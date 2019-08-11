@@ -16,6 +16,7 @@
 		DD17821222FAD1B500F88DA0 /* DesignsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C8D42279E45B004A80BE /* DesignsListController.swift */; };
 		DD17821322FAFDF400F88DA0 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BB722EB8110004D41D8 /* HorizontalController.swift */; };
 		DD17821422FC068500F88DA0 /* DesignDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67930322EF280300239B46 /* DesignDetailController.swift */; };
+		DD17821622FCDBC700F88DA0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17821522FCDBC700F88DA0 /* User.swift */; };
 		DD1D71B32286344000E477AF /* DesignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D71B22286344000E477AF /* DesignCell.swift */; };
 		DD37272F22F2461D00E62549 /* TestImageAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37272E22F2461D00E62549 /* TestImageAnimation.swift */; };
 		DD37273522F509A000E62549 /* DiscountedDesignController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37273422F509A000E62549 /* DiscountedDesignController.swift */; };
@@ -69,6 +70,7 @@
 		DDE60BAC22EB704B004D41D8 /* CategoryGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */; };
 		DDE60BAF22EB711E004D41D8 /* CustomApiDesigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */; };
 		DDE60BB822EB8110004D41D8 /* HorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE60BB722EB8110004D41D8 /* HorizontalController.swift */; };
+		DDF97A1B22FD975800151765 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF97A1A22FD975800151765 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,7 @@
 		CBE4890BDCC4719B8E8ED58D /* Pods-DesignerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesignerApp/Pods-DesignerApp.release.xcconfig"; sourceTree = "<group>"; };
 		DD17820322F9D81B00F88DA0 /* AdminProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductController.swift; sourceTree = "<group>"; };
 		DD17820522FA2A8800F88DA0 /* AddProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductController.swift; sourceTree = "<group>"; };
+		DD17821522FCDBC700F88DA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DD1D71B22286344000E477AF /* DesignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCell.swift; sourceTree = "<group>"; };
 		DD37272E22F2461D00E62549 /* TestImageAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageAnimation.swift; sourceTree = "<group>"; };
 		DD37273422F509A000E62549 /* DiscountedDesignController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedDesignController.swift; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		DDE60BAB22EB704B004D41D8 /* CategoryGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryGroupCell.swift; sourceTree = "<group>"; };
 		DDE60BAE22EB711E004D41D8 /* CustomApiDesigns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomApiDesigns.swift; sourceTree = "<group>"; };
 		DDE60BB722EB8110004D41D8 /* HorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalController.swift; sourceTree = "<group>"; };
+		DDF97A1A22FD975800151765 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		E717336B1B20D9F5329EFCD4 /* Pods_DesignerAppAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesignerAppAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA01E32F6748BDEE955B1914 /* Pods-DesignerAppAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesignerAppAdmin.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesignerAppAdmin/Pods-DesignerAppAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +200,7 @@
 		DD47581822741C9D00E82B32 /* DesignerApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDF97A1C22FD97B200151765 /* Services */,
 				DDE60BB022EB7139004D41D8 /* NewTestApi */,
 				DD47582B22743C8F00E82B32 /* Helpers */,
 				DD5964E0227666A600CCFF39 /* Models */,
@@ -254,6 +259,7 @@
 			children = (
 				DD69C8D62279EAC1004A80BE /* Category.swift */,
 				DD69C8D82279EB12004A80BE /* Product.swift */,
+				DD17821522FCDBC700F88DA0 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,6 +367,14 @@
 				DD37272E22F2461D00E62549 /* TestImageAnimation.swift */,
 			);
 			path = NewTestApi;
+			sourceTree = "<group>";
+		};
+		DDF97A1C22FD97B200151765 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DDF97A1A22FD975800151765 /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E9351279E73C9D614E97E03D /* Pods */ = {
@@ -563,6 +577,7 @@
 				DD47581C22741C9D00E82B32 /* StartupViewController.swift in Sources */,
 				DD69C8A62276F63B004A80BE /* MainTabController.swift in Sources */,
 				DD69C8D52279E45B004A80BE /* DesignsListController.swift in Sources */,
+				DD17821622FCDBC700F88DA0 /* User.swift in Sources */,
 				DD4758372274864200E82B32 /* CustomTextField.swift in Sources */,
 				DD6792FC22EC97B300239B46 /* FeaturedDesignCell.swift in Sources */,
 				DD69C8A822778C5F004A80BE /* MainListController.swift in Sources */,
@@ -583,6 +598,7 @@
 				DD37273922F50A8500E62549 /* DiscountedDesignCell.swift in Sources */,
 				DDE60BAA22EB6349004D41D8 /* ExploreController.swift in Sources */,
 				DD69C8AA227865CA004A80BE /* Extensions.swift in Sources */,
+				DDF97A1B22FD975800151765 /* UserService.swift in Sources */,
 				DD37273522F509A000E62549 /* DiscountedDesignController.swift in Sources */,
 				DD69C8B22278AE67004A80BE /* Firebase+Utilies.swift in Sources */,
 				DDE60BAC22EB704B004D41D8 /* CategoryGroupCell.swift in Sources */,

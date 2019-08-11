@@ -12,7 +12,7 @@ class Networking {
     
     static let shared = Networking()
     
-    func fetchDesigns(completion: @escaping (Result<[CustomApi], Error>) -> ()) {
+    func fetch(completion: @escaping (Result<[CustomApi], Error>) -> ()) {
         
         let urlString = "http://localhost:1337/posts"
         guard let url = URL(string: urlString) else { return }

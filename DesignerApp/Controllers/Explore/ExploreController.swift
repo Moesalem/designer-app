@@ -15,8 +15,13 @@ class ExploreController: MainListController {
     fileprivate let categoryCellId = "cellId"
     fileprivate let featureDesignCellId = "featureDesignCellId"
     fileprivate let discountedDesignCellId = "discountedDesignCellId"
+    
     // Login/Logout Button
     fileprivate let leftBarBtn = UIBarButtonItem()
+    
+    // favs btn
+    private let rightBtn = UIBarButtonItem()
+    
     var categoryVC = CategoryController()
     
     // MARK: - viewDidLoad
@@ -31,6 +36,17 @@ class ExploreController: MainListController {
         self.navigationItem.leftBarButtonItem = leftBarBtn
         leftBarBtn.action = #selector(signInOutBtn)
         leftBarBtn.target = self
+        
+        self.navigationItem.rightBarButtonItem = rightBtn
+        rightBtn.title = "right"
+        rightBtn.action = #selector(favBtnClicked)
+        rightBtn.target = self
+    }
+    
+    @objc func favBtnClicked() {
+        let designListController = DesignsListController()
+        designListController.isFavorite = true
+        self.navigationController?.pushViewController(designListController, animated: true)
     }
     
     //MARK:- viewDidAppear
@@ -68,7 +84,6 @@ extension ExploreController {
                 designDetailController.product = selectedProduct
                 designDetailController.navigationItem.title = selectedProduct.name
                 self.navigationController?.pushViewController(designDetailController, animated: true)
-
             }
             cell.featuredDesignController.fetchFeaturedDesigns()
             cell.featuredDesignController.listener.remove()
@@ -134,6 +149,9 @@ extension ExploreController {
     fileprivate func userState() {
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             leftBarBtn.title = "Logout"
+            if UserService.shared.userListener == nil {
+                UserService.shared.getCurrentUser()
+            }
         } else {
             leftBarBtn.title = "Login"
         }
