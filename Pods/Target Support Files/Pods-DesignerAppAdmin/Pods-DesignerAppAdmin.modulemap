@@ -1,6 +1,0 @@
-framework module Pods_DesignerAppAdmin {
-  umbrella header "Pods-DesignerAppAdmin-umbrella.h"
-
-  export *
-  module * { export * }
-}

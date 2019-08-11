@@ -66,8 +66,8 @@ extension LoginViewController {
                 let email = user.user.email // user email
                 print("Successfully Logged in", uid, email!)
             }
-            self?.present(MainTabBarController(), animated: true, completion: nil)
             strongSelf.activityIndcator.stopAnimating()
+            strongSelf.dismiss(animated: true, completion: nil)
         }
     }
     

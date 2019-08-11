@@ -15,10 +15,10 @@ class CategoryController: HorizontalController {
     
     // MARK: - Properties
     
-    fileprivate let cellId = "cellId"
-    fileprivate var categories = [Category]()
+    let categoryCellId = "categoryCellId"
+    var categories = [Category]()
     
-    fileprivate var selectedCategory: Category!
+    var selectedCategory: Category!
     
     // To track the listener
     fileprivate var listener: ListenerRegistration!
@@ -30,11 +30,14 @@ class CategoryController: HorizontalController {
         super.viewDidLoad()
         
         collectionView.backgroundColor = #colorLiteral(red: 0.4151936173, green: 0.412730217, blue: 0.4170902967, alpha: 1)
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: categoryCellId)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+//        setCategoriesListener()
+    }
     override func viewDidDisappear(_ animated: Bool) {
-        // listener.remove() // stops realtime updates
+//        listener.remove() // stops realtime updates
 //        categories.removeAll()
         collectionView.reloadData()
     }
@@ -49,7 +52,7 @@ extension CategoryController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: categoryCellId, for: indexPath) as! CategoryCell
         let category = categories[indexPath.item]
         cell.category = category
         return cell
@@ -69,7 +72,7 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
         let leftRightPadding = view.frame.width  * 0.10
         let interSpacing = view.frame.width * 0.10
         let cellWidth = (view.frame.width - 2 * leftRightPadding - 2 * interSpacing) / 2
-//        print(cellWidth)
+        //        print(cellWidth)
         return .init(width: cellWidth, height: cellWidth + 25)
     }
     
@@ -94,7 +97,7 @@ extension CategoryController: UICollectionViewDelegateFlowLayout {
 extension CategoryController {
     
     func setCategoriesListener() {
-
+        
         listener = Firestore.firestore().categoriesByTimestamp.addSnapshotListener { (snapshot, error) in
             
             if let error = error {

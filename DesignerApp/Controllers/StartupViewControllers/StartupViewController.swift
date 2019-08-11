@@ -85,10 +85,24 @@ extension StartupViewController {
                 self.activityIndcator.stopAnimating()
                 return
             }
-            
-            print("Succefuly registered new user.")
+            guard let firUser = Auth.auth().currentUser else { return }
+            let user = User.init(id: firUser.uid, email: email, username: username, stripId: "")
+            self.createUserDoc(user: user)
             self.activityIndcator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    fileprivate func createUserDoc(user: User) {
+        let docRef: DocumentReference! = Firestore.firestore().collection("users").document(user.id)
+        
+        let user = User.modelToData(user: user)
+        
+        docRef.setData(user) { (error) in
+            if let error = error {
+                print(error)
+                self.simpleAlert(title: "Error", msg: "Please fill up all inputs.")
+            }
         }
     }
 
