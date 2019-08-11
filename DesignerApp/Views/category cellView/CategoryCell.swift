@@ -19,7 +19,7 @@ class CategoryCell: UICollectionViewCell {
         }
     }
     
-    var categoryImage = UIImageView(image: #imageLiteral(resourceName: "DumbiPic"))
+    var categoryImage = UIImageView()
     let categoryLabel = UILabel(text: "Banners", font: .boldSystemFont(ofSize: 20), numberOfLines: 0)
     let shadowView = UIView()
     
