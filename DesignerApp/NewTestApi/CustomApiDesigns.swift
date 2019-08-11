@@ -27,7 +27,7 @@ class CustomApiDesigns: UITableViewController {
     
     fileprivate func fetchAllDesigns() {
         
-        Networking.shared.fetchDesigns { (res) in
+        Networking.shared.fetch { (res) in
             switch res{
             case .failure(let err):
                 print(err)
